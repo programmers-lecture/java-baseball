@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 public class Balls {
 
-    public final List<Ball> balls;
+    private final List<Ball> balls;
 
     private Balls(List<Ball> balls) {
         this.balls = balls;
