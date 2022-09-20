@@ -12,10 +12,10 @@ public class Balls {
     }
 
     public static Balls createBalls(List<String> numbers) {
-        List<Ball> balls =  numbers.stream().map(i -> (new Ball(Integer.parseInt(i)))).collect(Collectors.toList());
+        List<Ball> balls = numbers.stream().map(i -> (new Ball(Integer.parseInt(i))))
+            .collect(Collectors.toList());
         return new Balls(balls);
     }
-
 
 
 }
