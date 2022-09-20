@@ -3,8 +3,10 @@ package baseball.view;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class InputView {
 
@@ -12,8 +14,10 @@ public class InputView {
         new InputStreamReader(System.in));
 
 
-    public List<String> inputNumbersToList() {
-        return List.of(numberValidation(inputLine()).split(""));
+    public List<Integer> inputNumbersToList() {
+        return Arrays.stream(numberValidation(inputLine()).split(""))
+            .map(Integer::parseInt)
+            .collect(Collectors.toList());
     }
 
     private String inputLine() {
