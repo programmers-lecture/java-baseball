@@ -7,11 +7,24 @@ import java.util.List;
 
 public class InputView {
 
-    private static final BufferedReader bufferedReader = new BufferedReader(
+    private final BufferedReader bufferedReader = new BufferedReader(
         new InputStreamReader(System.in));
 
-    public static List<String> inputNumberToList() throws IOException {
-        return List.of(bufferedReader.readLine().split(""));
+
+    public List<String> inputNumbersToList() {
+        return List.of(toList(inputLine()));
+    }
+
+    private String[] toList(String numbers) {
+        return numbers.split("");
+    }
+
+    private String inputLine() {
+        try {
+            return bufferedReader.readLine();
+        } catch (IOException e) {
+            throw new RuntimeException("입력에 실패했습니다.");
+        }
     }
 
 
