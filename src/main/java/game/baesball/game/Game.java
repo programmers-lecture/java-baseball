@@ -1,14 +1,16 @@
-package game.baesball.rule;
+package game.baesball.game;
 
+import game.baesball.hint.Hint;
+import game.baesball.hint.HintHandler;
 import game.baesball.player.Player;
 
 public class Game {
 
-    public void playGame(Player computer, Player human) {
+    public void playGame(Player computer, Player human, boolean isRestart, int gameCount) {
         GameHandler gameHandler = new GameHandler();
         HintHandler hintHandler = new HintHandler();
 
-        computer.playGame();
+        if (isRestart || gameCount == 0) computer.playGame();
         human.playGame();
 
         Hint hint = hintHandler.createHint(
@@ -17,7 +19,6 @@ public class Game {
         );
 
         boolean checkWin = gameHandler.checkWinResult(hint);
-
-        if (!checkWin) playGame(computer, human);
+        if (!checkWin || gameHandler.checkRestartGame()) this.playGame(computer, human, checkWin, gameCount + 1);
     }
 }

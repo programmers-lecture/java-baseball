@@ -1,8 +1,10 @@
 package game.baesball.ball;
 
 import game.baesball.util.RandomUtil;
+import game.baesball.view.output.OutputView;
 
 import static game.baesball.view.input.InputHandler.*;
+import static game.baesball.view.input.InputMessage.INPUT_PLAYER_BALLS;
 
 public class BallsHandler {
 
@@ -11,6 +13,7 @@ public class BallsHandler {
     }
 
     public Balls getPlayerBalls() {
+        new OutputView().sendMessage(INPUT_PLAYER_BALLS.getMessage());
         return createBalls(
                 convertToIntegerArray(
                         splitBySpace(

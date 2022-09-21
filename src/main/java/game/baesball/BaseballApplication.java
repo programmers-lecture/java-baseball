@@ -3,7 +3,7 @@ package game.baesball;
 import game.baesball.player.ComputerPlayer;
 import game.baesball.player.HumanPlayer;
 import game.baesball.player.Player;
-import game.baesball.rule.Game;
+import game.baesball.game.Game;
 
 public class BaseballApplication {
 
@@ -12,6 +12,6 @@ public class BaseballApplication {
         Player humanPlayer = new HumanPlayer();
         Player computerPlayer = new ComputerPlayer();
 
-        game.playGame(computerPlayer, humanPlayer);
+        game.playGame(computerPlayer, humanPlayer, false, 0);
     }
 }

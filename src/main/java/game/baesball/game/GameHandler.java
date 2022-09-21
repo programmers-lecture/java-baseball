@@ -1,7 +1,10 @@
-package game.baesball.rule;
+package game.baesball.game;
 
+import game.baesball.hint.Hint;
+import game.baesball.view.input.InputView;
 import game.baesball.view.output.OutputView;
-import game.baesball.view.output.WinnerMessage;
+
+import static game.baesball.view.output.OutputMessage.*;
 
 public class GameHandler {
 
@@ -25,7 +28,7 @@ public class GameHandler {
         }
 
         if (checkStrikeAndBall(hint)) {
-            strikeAndBallMessage();
+            strikeAndBallMessage(hint);
             return true;
         }
 
@@ -41,19 +44,25 @@ public class GameHandler {
     }
 
     private void winMessage() {
-        new OutputView().sendMessage(String.valueOf(WinnerMessage.WINNER));
-
+        new OutputView().sendMessage(String.valueOf(WINNER));
     }
 
     private void notingMessage() {
-        new OutputView().sendMessage("");
+        new OutputView().sendMessage(NOTING.getMessage());
     }
 
-    private void loseMessage() {
-        new OutputView().sendMessage("");
+    private void strikeAndBallMessage(Hint hint) {
+        new OutputView().sendMessage(hint.getStrike() + STRIKE.getMessage() + " " + hint.getBall() + BALL.getMessage());
     }
 
-    private void strikeAndBallMessage() {
-        new OutputView().sendMessage("");
+    public boolean checkRestartGame() {
+        new OutputView().sendMessage(PLAY_GAME_AGAIN.getMessage());
+        String restart = new InputView().read();
+         return checkRestartGame(restart);
     }
+
+    private boolean checkRestartGame(String restart) {
+        return restart.equals("1");
+    }
+
 }

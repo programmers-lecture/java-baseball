@@ -1,4 +1,4 @@
-package game.baesball.rule;
+package game.baesball.hint;
 
 import game.baesball.ball.Balls;
 

@@ -1,4 +1,4 @@
-package game.baesball.rule;
+package game.baesball.hint;
 
 public class Hint {
 
