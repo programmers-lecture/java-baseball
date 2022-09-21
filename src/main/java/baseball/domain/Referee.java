@@ -3,18 +3,13 @@ package baseball.domain;
 import java.util.List;
 
 public class Referee {
-
-
     private final Balls comBalls;
-
     private int strike;
     private int ball;
-
 
     public Referee(List<Integer> comBalls) {
         this.comBalls = Balls.createBalls(comBalls);
     }
-
 
     public void getScore(Balls userBalls) {
         for (int i = 0; i < Balls.BALL_SIZE; i++) {
@@ -36,9 +31,15 @@ public class Referee {
     }
 
     public void scoreInit() {
-        this.strike=0;
-        this.ball=0;
+        this.strike = 0;
+        this.ball = 0;
     }
 
 
+    public boolean isOutScore() {
+        if (strike == Balls.BALL_SIZE) {
+            return true;
+        }
+        return false;
+    }
 }
