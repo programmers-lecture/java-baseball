@@ -22,7 +22,4 @@ public class BallsHandler {
         return new Balls(balls[0], balls[1], balls[2]);
     }
 
-    public void checkBalls() {
-
-    }
 }

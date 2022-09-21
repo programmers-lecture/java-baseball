@@ -10,7 +10,6 @@ public class InputHandler {
         input = inputView.read();
 
         if (inputValidation.checkInputEmpty(input)) {
-            // TODO : 다시 읽기
             input = inputView.read().trim();
         }
 

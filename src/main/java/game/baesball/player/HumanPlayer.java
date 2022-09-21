@@ -10,7 +10,6 @@ public class HumanPlayer implements Player {
 
     public void playGame() {
         balls = ballsHandler.getPlayerBalls();
-        System.out.println("balls = " + balls);
     }
 
     public Balls getBalls() {

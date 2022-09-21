@@ -16,9 +16,6 @@ public class Game {
                 human.getBalls()
         );
 
-        System.out.println("hint.getStrike() = " + hint.getStrike());
-        System.out.println("hint.getBall() = " + hint.getBall());
-
         boolean checkWin = gameHandler.checkWinResult(hint);
 
         if (!checkWin) playGame(computer, human);
