@@ -14,10 +14,6 @@ public enum Score {
         this.point = score;
     }
 
-    public int getPoint() {
-        return point;
-    }
-
     public void increaseScore() {
         point++;
     }
