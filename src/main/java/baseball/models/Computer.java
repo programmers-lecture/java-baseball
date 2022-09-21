@@ -1,5 +1,7 @@
 package baseball.models;
 
+import baseball.utils.RandomUtil;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -18,9 +20,8 @@ public class Computer implements User {
 
     @Override
     public void createBall() {
-        Random random = new Random();
         while(ball.size() < 3) {
-            int randomNumber = random.nextInt(9) + 1;
+            int randomNumber = RandomUtil.createRandomNumber();
             if(!ball.contains(randomNumber))
                 ball.add(randomNumber);
         }
