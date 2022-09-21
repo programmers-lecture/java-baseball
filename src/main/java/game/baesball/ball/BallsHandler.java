@@ -14,4 +14,8 @@ public class BallsHandler {
         Integer[] tempBalls = convertToIntegerArray(splitBySpace(readLine()));
         return new Balls(tempBalls[0], tempBalls[1], tempBalls[2]);
     }
+
+    public void checkBalls() {
+
+    }
 }

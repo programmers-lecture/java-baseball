@@ -6,7 +6,7 @@ public class Balls {
     private Integer ballTwo;
     private Integer ballThree;
 
-    private Balls() {
+    public Balls() {
     }
 
     public Balls(Integer ballOne, Integer ballTwo, Integer ballThree) {
@@ -15,15 +15,21 @@ public class Balls {
         this.ballThree = ballThree;
     }
 
-    public Integer getBallOne() {
+    public void setBalls(Balls newBalls) {
+        ballOne = newBalls.getBallOne();
+        ballTwo = newBalls.getBallTwo();
+        ballThree = newBalls.getBallThree();
+    }
+
+    private Integer getBallOne() {
         return ballOne;
     }
 
-    public Integer getBallTwo() {
+    private Integer getBallTwo() {
         return ballTwo;
     }
 
-    public Integer getBallThree() {
+    private Integer getBallThree() {
         return ballThree;
     }
 
