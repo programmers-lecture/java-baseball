@@ -35,5 +35,10 @@ public class Referee {
         }
     }
 
+    public void scoreInit() {
+        this.strike=0;
+        this.ball=0;
+    }
+
 
 }
