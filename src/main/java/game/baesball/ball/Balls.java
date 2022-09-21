@@ -15,16 +15,20 @@ public class Balls {
         this.ballThree = ballThree;
     }
 
-    private Integer getBallOne() {
+    public Integer getBallOne() {
         return ballOne;
     }
 
-    private Integer getBallTwo() {
+    public Integer getBallTwo() {
         return ballTwo;
     }
 
-    private Integer getBallThree() {
+    public Integer getBallThree() {
         return ballThree;
+    }
+
+    public Integer[] getBalls() {
+        return new Integer[]{ballOne, ballTwo, ballThree};
     }
 
 }
