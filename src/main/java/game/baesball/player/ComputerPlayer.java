@@ -10,7 +10,6 @@ public class ComputerPlayer implements Player {
 
     public void playGame() {
         balls = ballsHandler.getRandomBalls();
-        System.out.println("balls = " + balls);
     }
 
     public Balls getBalls() {
