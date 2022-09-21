@@ -8,4 +8,8 @@ public class OutputView {
         System.out.printf(REQUEST_NUMBER_MSG);
     }
 
+    public static void printString(String value){
+        System.out.println(value);
+    }
+
 }
