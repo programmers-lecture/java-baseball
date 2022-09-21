@@ -10,7 +10,7 @@ public class Ball {
     private final int ball;
 
     public Ball(int ball) {
-        this.ball = ball;
+        this.ball = ballValidation(ball);
     }
 
     private int ballValidation(int ballNumber) {
