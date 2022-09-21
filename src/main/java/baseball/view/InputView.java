@@ -13,7 +13,6 @@ public class InputView {
     private final BufferedReader bufferedReader = new BufferedReader(
         new InputStreamReader(System.in));
 
-
     public List<Integer> inputNumbersToList() {
         return Arrays.stream(numberValidation(inputLine()).split(""))
             .map(Integer::parseInt)
@@ -35,5 +34,7 @@ public class InputView {
         throw new IllegalArgumentException("입력이 잘못되었습니다.");
     }
 
-
+    public String inputReplay(){
+        return inputLine().trim();
+    }
 }
