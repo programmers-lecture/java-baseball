@@ -5,6 +5,9 @@ public enum Score {
     STRIKE(0), BALL(0);
 
     public static final int INIT_POINT = 0;
+    public static final String STRIKE_MSG = " 스트라이크";
+    public static final String BALL_MSG = " 볼";
+    public static final String NOTHING_MSG = "낫싱";
     private int point;
 
     Score(int score) {
@@ -34,15 +37,15 @@ public enum Score {
 
     public static String pointToString() {
         if (STRIKE.point == 0 && BALL.point == 0) {
-            return "낫싱";
+            return NOTHING_MSG;
         }
         if (STRIKE.point != 0 && BALL.point == 0) {
-            return STRIKE.point + " 스트라이크";
+            return STRIKE.point + STRIKE_MSG;
         }
         if (STRIKE.point == 0 && BALL.point != 0) {
-            return BALL.point + "볼";
+            return BALL.point + BALL_MSG;
         }
-        return STRIKE.point + "스트라이크 " + BALL.point + "볼";
+        return STRIKE.point + STRIKE_MSG + BALL.point + BALL_MSG;
     }
 }
 

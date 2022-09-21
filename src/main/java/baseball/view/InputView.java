@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 
 public class InputView {
 
+    public static final String INPUT_ERROR_MSG = "입력이 잘못되었습니다.";
     private final BufferedReader bufferedReader = new BufferedReader(
         new InputStreamReader(System.in));
 
@@ -23,7 +24,7 @@ public class InputView {
         try {
             return bufferedReader.readLine();
         } catch (IOException e) {
-            throw new RuntimeException("입력에 실패했습니다.");
+            throw new RuntimeException(INPUT_ERROR_MSG);
         }
     }
 
@@ -31,7 +32,7 @@ public class InputView {
         if (Pattern.matches("^\\d{3}", numbers)) {
             return numbers;
         }
-        throw new IllegalArgumentException("입력이 잘못되었습니다.");
+        throw new IllegalArgumentException(INPUT_ERROR_MSG);
     }
 
     public String inputReplay(){
