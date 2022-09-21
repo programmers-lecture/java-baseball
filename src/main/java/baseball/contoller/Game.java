@@ -10,7 +10,7 @@ import baseball.view.OutputView;
 
 public class Game {
 
-    public static final String REPALY_NUMBER = "1";
+    public static final String REPLAY_NUMBER = "1";
     private InputView inputView = new InputView();
     private RandomNumber randomNumber = new RandomNumberImpl();
     private Referee referee;
@@ -33,7 +33,7 @@ public class Game {
 
     public void userIsReplay() {
         OutputView.printAskReplay();
-        if (inputView.inputReplay().equals(REPALY_NUMBER)) {
+        if (inputView.inputReplay().equals(REPLAY_NUMBER)) {
             this.isReplay = true;
             return;
         }
