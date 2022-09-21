@@ -15,12 +15,6 @@ public class Balls {
         this.ballThree = ballThree;
     }
 
-    public void setBalls(Balls newBalls) {
-        ballOne = newBalls.getBallOne();
-        ballTwo = newBalls.getBallTwo();
-        ballThree = newBalls.getBallThree();
-    }
-
     private Integer getBallOne() {
         return ballOne;
     }
