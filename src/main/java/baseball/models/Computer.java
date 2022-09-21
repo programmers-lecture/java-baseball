@@ -4,7 +4,6 @@ import baseball.utils.RandomUtil;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class Computer implements User {
     private List<Integer> ball = new ArrayList<>();
@@ -20,7 +19,7 @@ public class Computer implements User {
 
     @Override
     public void createBall() {
-        while(ball.size() < 3) {
+        while(ball.size() < Baseball.BALL_SIZE) {
             int randomNumber = RandomUtil.createRandomNumber();
             if(!ball.contains(randomNumber))
                 ball.add(randomNumber);

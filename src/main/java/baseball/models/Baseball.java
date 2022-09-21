@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 public class Baseball {
+    public static final int BALL_SIZE = 3;
     private Integer strikeCount = 0;
     private Integer ballCount = 0;
 
@@ -21,7 +22,7 @@ public class Baseball {
     }
 
     public boolean isBaseBallEnd() {
-        return strikeCount < 3;
+        return strikeCount < BALL_SIZE;
     }
 
     private void countStrike(List<Integer> playerBall, List<Integer> computerBall) {
