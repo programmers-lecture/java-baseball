@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Balls {
+    public static final int BALL_SIZE = 3;
 
     private final List<Ball> balls;
 
@@ -11,11 +12,20 @@ public class Balls {
         this.balls = balls;
     }
 
-    public static Balls createBalls(List<String> numbers) {
-        List<Ball> balls = numbers.stream().map(i -> (new Ball(Integer.parseInt(i))))
+    public static Balls createBalls(List<Integer> numbers) {
+        List<Ball> balls = numbers.stream().map(i -> (new Ball(i)))
             .collect(Collectors.toList());
         return new Balls(balls);
     }
+
+    public boolean getStrike(Balls userBalls, int index) {
+        if(balls.get(index).equals(userBalls.balls.get(index))){
+            return true;
+        }
+        return false;
+    }
+
+
 
 
 }

@@ -4,15 +4,29 @@ import java.util.List;
 
 public class Referee {
 
-    private Balls userBalls;
 
     private final Balls comBalls;
+
+    private int strike;
+    private int ball;
 
 
     public Referee(List<Integer> comBalls) {
         this.comBalls = Balls.createBalls(comBalls);
     }
 
+
+    public void findStrike(Balls userBalls) {
+        for (int i = 0; i < Balls.BALL_SIZE; i++) {
+            isStrike(userBalls, i);
+        }
+    }
+
+    private void isStrike(Balls userBalls, int i) {
+        if (comBalls.getStrike(userBalls, i)) {
+            strike++;
+        }
+    }
 
 
 }
