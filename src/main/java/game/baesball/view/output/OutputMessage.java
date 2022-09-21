@@ -5,7 +5,7 @@ public enum OutputMessage {
     BALL("볼"),
     NOTING("낫싱"),
     WINNER("승리하셨습니다 !!"),
-    PLAY_GAME_AGAIN("다시 게임을 진행하시겠습니까 ?");
+    PLAY_GAME_AGAIN("다시 게임을 진행하시겠습니까 ? ) 예 : 1  //  아니요 : 2");
 
     private final String message;
 

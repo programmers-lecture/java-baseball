@@ -3,12 +3,12 @@ package game.baesball;
 import game.baesball.player.ComputerPlayer;
 import game.baesball.player.HumanPlayer;
 import game.baesball.player.Player;
-import game.baesball.game.Game;
+import game.baesball.game.GameHandler;
 
 public class BaseballApplication {
 
     public static void main(String[] args) {
-        Game game = new Game();
+        GameHandler game = new GameHandler();
         Player humanPlayer = new HumanPlayer();
         Player computerPlayer = new ComputerPlayer();
 

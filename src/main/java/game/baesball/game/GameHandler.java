@@ -1,68 +1,25 @@
 package game.baesball.game;
 
 import game.baesball.hint.Hint;
-import game.baesball.view.input.InputView;
-import game.baesball.view.output.OutputView;
-
-import static game.baesball.view.output.OutputMessage.*;
+import game.baesball.hint.HintChecker;
+import game.baesball.hint.HintHandler;
+import game.baesball.player.Player;
 
 public class GameHandler {
 
-    public boolean checkWinResult(Hint hint) {
-        checkLose(hint);
-        return checkWin(hint);
+    public void playGame(Player computer, Player human, boolean isRestart, int gameCount) {
+        HintChecker gameHandler = new HintChecker();
+        HintHandler hintHandler = new HintHandler();
+
+        if (isRestart || gameCount == 0) computer.playGame();
+        human.playGame();
+
+        Hint hint = hintHandler.createHint(
+                computer.getBalls(),
+                human.getBalls()
+        );
+
+        boolean checkWin = gameHandler.checkWinResult(hint);
+        if (!checkWin || gameHandler.checkRestartGame()) this.playGame(computer, human, checkWin, gameCount + 1);
     }
-
-    private boolean checkWin(Hint hint) {
-        if (hint.getStrike() == 3) {
-            winMessage();
-            return true;
-        }
-        return false;
-    }
-
-    private boolean checkLose(Hint hint) {
-        if (checkNoting(hint)) {
-            notingMessage();
-            return true;
-        }
-
-        if (checkStrikeAndBall(hint)) {
-            strikeAndBallMessage(hint);
-            return true;
-        }
-
-        return false;
-    }
-
-    private boolean checkNoting(Hint hint) {
-        return hint.getStrike() + hint.getBall() == 0;
-    }
-
-    private boolean checkStrikeAndBall(Hint hint) {
-        return hint.getStrike() + hint.getBall() != 0;
-    }
-
-    private void winMessage() {
-        new OutputView().sendMessage(String.valueOf(WINNER));
-    }
-
-    private void notingMessage() {
-        new OutputView().sendMessage(NOTING.getMessage());
-    }
-
-    private void strikeAndBallMessage(Hint hint) {
-        new OutputView().sendMessage(hint.getStrike() + STRIKE.getMessage() + " " + hint.getBall() + BALL.getMessage());
-    }
-
-    public boolean checkRestartGame() {
-        new OutputView().sendMessage(PLAY_GAME_AGAIN.getMessage());
-        String restart = new InputView().read();
-         return checkRestartGame(restart);
-    }
-
-    private boolean checkRestartGame(String restart) {
-        return restart.equals("1");
-    }
-
 }

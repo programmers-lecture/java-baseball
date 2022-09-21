@@ -6,9 +6,6 @@ public class Balls {
     private int ballTwo;
     private int ballThree;
 
-    public Balls() {
-    }
-
     public Balls(int ballOne, int ballTwo, int ballThree) {
         this.ballOne = ballOne;
         this.ballTwo = ballTwo;
