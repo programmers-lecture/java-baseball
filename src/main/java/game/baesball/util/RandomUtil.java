@@ -4,9 +4,9 @@ import java.util.Random;
 
 public class RandomUtil {
 
-    public Integer[] makeThreeRandoms() {
+    public int[] makeThreeRandoms() {
         Random random = setRandom();
-        return new Integer[] {
+        return new int[]{
                 getRandomNumberBetweenOnetoNine(random),
                 getRandomNumberBetweenOnetoNine(random),
                 getRandomNumberBetweenOnetoNine(random)
@@ -14,8 +14,7 @@ public class RandomUtil {
     }
 
     private int getRandomNumberBetweenOnetoNine(Random random) {
-        random.setSeed(9);
-        return random.nextInt() + 1;
+        return random.nextInt(9) + 1;
     }
 
     private Random setRandom() {

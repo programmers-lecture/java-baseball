@@ -11,7 +11,7 @@ public class InputHandler {
 
         if (inputValidation.checkInputEmpty(input)) {
             // TODO : 다시 읽기
-            input = inputView.read();
+            input = inputView.read().trim();
         }
 
         return input;
@@ -21,11 +21,11 @@ public class InputHandler {
         return input.split(" ");
     }
 
-    public static Integer[] convertToIntegerArray(String[] input) {
-        return new Integer[] {
+    public static int[] convertToIntegerArray(String[] input) {
+        return new int[] {
                 Integer.parseInt(input[0]),
-                Integer.parseInt(input[0]),
-                Integer.parseInt(input[0])
+                Integer.parseInt(input[1]),
+                Integer.parseInt(input[2])
         };
     }
 }

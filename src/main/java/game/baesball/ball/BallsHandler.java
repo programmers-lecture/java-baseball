@@ -18,7 +18,7 @@ public class BallsHandler {
         )));
     }
 
-    public Balls createBalls(Integer[] balls) {
+    public Balls createBalls(int[] balls) {
         return new Balls(balls[0], balls[1], balls[2]);
     }
 

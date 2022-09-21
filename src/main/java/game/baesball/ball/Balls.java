@@ -2,33 +2,41 @@ package game.baesball.ball;
 
 public class Balls {
 
-    private Integer ballOne;
-    private Integer ballTwo;
-    private Integer ballThree;
+    private int ballOne;
+    private int ballTwo;
+    private int ballThree;
 
     public Balls() {
     }
 
-    public Balls(Integer ballOne, Integer ballTwo, Integer ballThree) {
+    public Balls(int ballOne, int ballTwo, int ballThree) {
         this.ballOne = ballOne;
         this.ballTwo = ballTwo;
         this.ballThree = ballThree;
     }
 
-    public Integer getBallOne() {
+    public int getBallOne() {
         return ballOne;
     }
 
-    public Integer getBallTwo() {
+    public int getBallTwo() {
         return ballTwo;
     }
 
-    public Integer getBallThree() {
+    public int getBallThree() {
         return ballThree;
     }
 
-    public Integer[] getBalls() {
-        return new Integer[]{ballOne, ballTwo, ballThree};
+    public int[] getBalls() {
+        return new int[] {ballOne, ballTwo, ballThree};
     }
 
+    @Override
+    public String toString() {
+        return "Balls{" +
+                "ballOne=" + ballOne +
+                ", ballTwo=" + ballTwo +
+                ", ballThree=" + ballThree +
+                '}';
+    }
 }
