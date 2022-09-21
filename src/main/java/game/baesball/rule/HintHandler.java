@@ -6,7 +6,9 @@ import java.util.Objects;
 
 public class HintHandler {
 
-    public Hint createHint(Integer strikeCount, Integer ballCount) {
+    public Hint createHint(Balls computerBalls, Balls playerBalls) {
+        int strikeCount = countStrike(computerBalls, playerBalls);
+        int ballCount = countBalls(computerBalls, playerBalls);
         return new Hint(strikeCount, ballCount - strikeCount);
     }
 
