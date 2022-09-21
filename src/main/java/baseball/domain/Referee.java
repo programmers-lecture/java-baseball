@@ -16,9 +16,16 @@ public class Referee {
     }
 
 
-    public void findStrike(Balls userBalls) {
+    public void getScore(Balls userBalls) {
         for (int i = 0; i < Balls.BALL_SIZE; i++) {
             isStrike(userBalls, i);
+            isBall(userBalls, i);
+        }
+    }
+
+    private void isBall(Balls userBalls, int i) {
+        if (comBalls.getBall(userBalls, i)) {
+            ball++;
         }
     }
 

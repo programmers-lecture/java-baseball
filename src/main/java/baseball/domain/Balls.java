@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Balls {
+
     public static final int BALL_SIZE = 3;
 
     private final List<Ball> balls;
@@ -19,13 +20,17 @@ public class Balls {
     }
 
     public boolean getStrike(Balls userBalls, int index) {
-        if(balls.get(index).equals(userBalls.balls.get(index))){
+        if (balls.get(index).equals(userBalls.balls.get(index))) {
             return true;
         }
         return false;
     }
 
 
-
-
+    public boolean getBall(Balls userBalls, int i) {
+        if (balls.contains(userBalls.balls.get(i)) && !getStrike(userBalls, i)) {
+            return true;
+        }
+        return false;
+    }
 }
