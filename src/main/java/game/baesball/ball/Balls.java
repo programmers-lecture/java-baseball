@@ -28,12 +28,4 @@ public class Balls {
         return new int[] {ballOne, ballTwo, ballThree};
     }
 
-    @Override
-    public String toString() {
-        return "Balls{" +
-                "ballOne=" + ballOne +
-                ", ballTwo=" + ballTwo +
-                ", ballThree=" + ballThree +
-                '}';
-    }
 }
