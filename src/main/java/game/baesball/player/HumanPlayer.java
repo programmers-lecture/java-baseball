@@ -1,8 +1,14 @@
 package game.baesball.player;
 
 import game.baesball.ball.Balls;
+import game.baesball.view.input.InputView;
 
-public class HumanPlayer {
+import java.io.IOException;
 
-    private Balls balls;
+public class HumanPlayer extends Balls {
+
+    @Override
+    public Balls getBalls() {
+        return null;
+    }
 }

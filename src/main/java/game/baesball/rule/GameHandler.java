@@ -1,4 +1,4 @@
 package game.baesball.rule;
 
-public class GameChecker {
+public class GameHandler {
 }

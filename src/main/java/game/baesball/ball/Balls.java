@@ -6,6 +6,9 @@ public class Balls {
     private Integer ballTwo;
     private Integer ballThree;
 
+    private Balls() {
+    }
+
     public Balls(Integer ballOne, Integer ballTwo, Integer ballThree) {
         this.ballOne = ballOne;
         this.ballTwo = ballTwo;
@@ -23,4 +26,5 @@ public class Balls {
     public Integer getBallThree() {
         return ballThree;
     }
+
 }
