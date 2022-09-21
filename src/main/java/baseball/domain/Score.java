@@ -25,4 +25,24 @@ public enum Score {
         }
     }
 
+    public static boolean isOutPoint() {
+        if (STRIKE.point == Balls.BALL_SIZE) {
+            return true;
+        }
+        return false;
+    }
+
+    public static String pointToString() {
+        if (STRIKE.point == 0 && BALL.point == 0) {
+            return "낫싱";
+        }
+        if (STRIKE.point != 0 && BALL.point == 0) {
+            return STRIKE.point + " 스트라이크";
+        }
+        if (STRIKE.point == 0 && BALL.point != 0) {
+            return BALL.point + "볼";
+        }
+        return STRIKE.point + "스트라이크 " + BALL.point + "볼";
+    }
 }
+
