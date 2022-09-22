@@ -12,7 +12,7 @@ public class HintService {
   }
   public int countStrike(List<Integer> playerNumbers, List<Integer> computerNumbers){
     int strike = 0;
-    for(int i=0; i<=3; i++){
+    for(int i=0; i<3; i++){
       int playerNumber = playerNumbers.get(i);
       int computerNumber = computerNumbers.get(i);
       if(playerNumber==computerNumber){
@@ -24,7 +24,7 @@ public class HintService {
 
   public int countBall(List<Integer> playerNumbers, List<Integer> computerNumbers){
     int ball = 0;
-    for(int i=0; i<=3; i++){
+    for(int i=0; i<3; i++){
       int playerNumber = playerNumbers.get(i);
       if(computerNumbers.contains(playerNumber)&&computerNumbers.indexOf(playerNumber)!=i){
         ball++;
