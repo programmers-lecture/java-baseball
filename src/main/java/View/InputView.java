@@ -15,7 +15,7 @@ public class InputView {
   }
 
   public List<Integer> inputDisplay(){
-    System.out.println(inputMessage);
+    System.out.print(inputMessage);
     String inputValue = sc.next();
     List<Integer> playerNumbers = Arrays
         .stream(inputValue.split(""))
@@ -25,7 +25,7 @@ public class InputView {
   }
 
   public int mainDisplay(){
-    System.out.print(mainMessage);
+    System.out.println(mainMessage);
     int replayValue = sc.nextInt();
     return replayValue;
   }

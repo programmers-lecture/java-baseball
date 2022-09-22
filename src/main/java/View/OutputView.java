@@ -12,15 +12,15 @@ public class OutputView {
   }
 
   public void closeRightDisplay(){
-    System.out.print(closedRightMessage);
+    System.out.println(closedRightMessage);
   }
 
   public void closeWrongDisplay(){
-    System.out.print(closedWrongMessage);
+    System.out.println(closedWrongMessage);
   }
 
   public void strikeAndBallDisplay(int strike, int ball){
-    if(strike==0 && ball==0){
+    if (strike==0 && ball==0){
       System.out.println("낫싱");
     }
     if (ball>0 && strike==0){
@@ -29,7 +29,9 @@ public class OutputView {
     if (ball==0 && strike>0){
       System.out.println(strike+"스트라이크");
     }
-    System.out.println(ball+"볼"+strike+"스트라이크");
+    if (ball>0 && strike>0) {
+      System.out.println(ball + "볼" + strike + "스트라이크");
+    }
   }
 
   public void close(){
