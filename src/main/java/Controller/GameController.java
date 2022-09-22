@@ -28,11 +28,13 @@ public class GameController {
   }
 
   private void playGame(){
-
+    List<Integer> computerNumbers = randomNumber.createRandomNumbers();
+    System.out.println(computerNumbers);
     while(true){
       List<Integer> playerNumbers = inputView.inputDisplay();
-      List<Integer> computerNumbers = randomNumber.createRandomNumbers();
+      System.out.println(playerNumbers);
       Hint hint = hintService.countStrikeAndBall(playerNumbers, computerNumbers);
+      System.out.println(hint.getStrike()+hint.getBall());
       if(hint.getStrike()==3){
         outputView.closeRightDisplay();
         break;
