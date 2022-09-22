@@ -7,7 +7,6 @@ public class OutputView {
   private final String closedRightMessage = "3개의 숫자를 모두 맞히셨습니다! 게임 종료";
   private final String closedWrongMessage = "잘못된 입력입니다. 게임종료";
 
-
   public OutputView(){
     sc = new Scanner(System.in);
   }
@@ -33,9 +32,7 @@ public class OutputView {
     System.out.println(ball+"볼"+strike+"스트라이크");
   }
 
-
   public void close(){
     sc.close();
   }
-
 }

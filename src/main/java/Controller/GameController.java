@@ -2,7 +2,6 @@ package Controller;
 
 
 import java.util.List;
-
 import Domain.Hint;
 import Domain.HintService;
 import View.InputView;

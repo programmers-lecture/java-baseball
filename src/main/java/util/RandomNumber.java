@@ -1,7 +1,6 @@
 package util;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -33,10 +32,5 @@ public class RandomNumber {
       addRandomNumber(number,randomNumbers);
     }
     return randomNumbers;
-  }
-
-  public static void main(String[] args) {
-    RandomNumber randomNumber = new RandomNumber();
-    System.out.println(randomNumber.createRandomNumbers());
   }
 }
