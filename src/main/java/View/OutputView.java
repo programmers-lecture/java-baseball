@@ -1,25 +1,15 @@
 package View;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
-public class ViewMessage {
+public class OutputView {
   private Scanner sc;
-  private final String inputMessage = "숫자를 입력해주세요: ";
   private final String closedRightMessage = "3개의 숫자를 모두 맞히셨습니다! 게임 종료";
   private final String closedWrongMessage = "잘못된 입력입니다. 게임종료";
   private final String mainMessage = "게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.";
 
-  public ViewMessage(){
+  public OutputView(){
     sc = new Scanner(System.in);
-  }
-
-  public void inputDisplay(){
-    System.out.println(inputMessage);
-    String inputValue = sc.next();
-    Arrays.stream(inputValue.split(""))
-        .map(s -> Integer.parseInt(s));
   }
 
   public void closeRightDisplay(){
