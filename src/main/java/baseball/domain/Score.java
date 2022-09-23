@@ -25,10 +25,7 @@ public enum Score {
     }
 
     public static boolean isOutPoint() {
-        if (STRIKE.point == Balls.BALL_SIZE) {
-            return true;
-        }
-        return false;
+        return STRIKE.point == Balls.BALL_SIZE;
     }
 
     public static String pointToString() {
