@@ -1,5 +1,9 @@
 package game.baseball.view.input;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class InputHandler {
 
     private final static InputView inputView = new InputView();
@@ -20,11 +24,9 @@ public class InputHandler {
         return input.split(" ");
     }
 
-    public static int[] convertToIntegerArray(String[] input) {
-        return new int[] {
-                Integer.parseInt(input[0]),
-                Integer.parseInt(input[1]),
-                Integer.parseInt(input[2])
-        };
+    public static List<Integer> convertToIntegerList(String[] ballNumbers) {
+        return Arrays.stream(ballNumbers)
+                .map(Integer::parseInt)
+                .collect(Collectors.toList());
     }
 }

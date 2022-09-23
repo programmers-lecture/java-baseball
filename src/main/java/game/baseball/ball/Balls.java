@@ -1,31 +1,16 @@
 package game.baseball.ball;
 
+import java.util.List;
+
 public class Balls {
 
-    private int ballOne;
-    private int ballTwo;
-    private int ballThree;
+    private final List<Integer> balls;
 
-    public Balls(int ballOne, int ballTwo, int ballThree) {
-        this.ballOne = ballOne;
-        this.ballTwo = ballTwo;
-        this.ballThree = ballThree;
+    public Balls(List<Integer> balls) {
+        this.balls = balls;
     }
 
-    public int getBallOne() {
-        return ballOne;
+    public List<Integer> getBalls() {
+        return balls;
     }
-
-    public int getBallTwo() {
-        return ballTwo;
-    }
-
-    public int getBallThree() {
-        return ballThree;
-    }
-
-    public int[] getBalls() {
-        return new int[] {ballOne, ballTwo, ballThree};
-    }
-
 }
