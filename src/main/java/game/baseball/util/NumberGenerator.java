@@ -1,6 +1,8 @@
 package game.baseball.util;
 
+import java.util.List;
+
 public interface NumberGenerator {
 
-    public int generate(int numberSize, int minNumber, int maxNumber);
+    List<Integer> generate();
 }
