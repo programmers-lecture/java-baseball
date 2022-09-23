@@ -24,4 +24,16 @@ class BallsTest {
     void getNotStrikeTest() throws Exception {
         Assertions.assertTrue(balls.getStrike(userBalls, 1));
     }
+
+    @Test
+    @DisplayName("Balls 볼 성공 테스트")
+    void getBallTest() throws Exception {
+        Assertions.assertTrue(balls.getBall(userBalls, 1));
+    }
+
+    @Test
+    @DisplayName("Balls 볼 실패 테스트")
+    void getNotBallTest() throws Exception {
+        Assertions.assertFalse(balls.getBall(userBalls, 2));
+    }
 }
