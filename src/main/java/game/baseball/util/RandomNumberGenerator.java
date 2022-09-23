@@ -1,7 +1,5 @@
 package game.baseball.util;
 
-import game.baseball.game.GameSetting;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
