@@ -14,7 +14,7 @@ public class Ball {
     }
 
     private int ballValidation(int ballNumber) {
-        if (ballNumber >= MIN_BALL_NUMBER || MAX_BALL_NUMBER <= ballNumber) {
+        if (ballNumber >= MIN_BALL_NUMBER && MAX_BALL_NUMBER >= ballNumber) {
             return ballNumber;
         }
         throw new IllegalArgumentException(BALL_RANGE_MSG);
