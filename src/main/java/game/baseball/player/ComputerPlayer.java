@@ -1,7 +1,7 @@
-package game.baesball.player;
+package game.baseball.player;
 
-import game.baesball.ball.Balls;
-import game.baesball.ball.BallsHandler;
+import game.baseball.ball.Balls;
+import game.baseball.ball.BallsHandler;
 
 public class ComputerPlayer implements Player {
 

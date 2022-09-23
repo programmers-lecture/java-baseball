@@ -1,9 +1,9 @@
-package game.baesball.game;
+package game.baseball.game;
 
-import game.baesball.hint.Hint;
-import game.baesball.hint.HintChecker;
-import game.baesball.hint.HintHandler;
-import game.baesball.player.Player;
+import game.baseball.hint.Hint;
+import game.baseball.hint.HintChecker;
+import game.baseball.hint.HintHandler;
+import game.baseball.player.Player;
 
 public class GameHandler {
 

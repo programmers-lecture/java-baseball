@@ -1,4 +1,4 @@
-package game.baesball.view.output;
+package game.baseball.view.output;
 
 public class OutputView {
 

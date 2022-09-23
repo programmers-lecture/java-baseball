@@ -1,4 +1,4 @@
-package game.baesball.view.input;
+package game.baseball.view.input;
 
 public class InputValidation {
 

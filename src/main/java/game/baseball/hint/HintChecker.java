@@ -1,9 +1,9 @@
-package game.baesball.hint;
+package game.baseball.hint;
 
-import game.baesball.view.input.InputView;
-import game.baesball.view.output.OutputView;
+import game.baseball.view.input.InputView;
+import game.baseball.view.output.OutputView;
 
-import static game.baesball.view.output.OutputMessage.*;
+import static game.baseball.view.output.OutputMessage.*;
 
 public class HintChecker {
 

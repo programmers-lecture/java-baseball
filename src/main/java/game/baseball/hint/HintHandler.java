@@ -1,6 +1,6 @@
-package game.baesball.hint;
+package game.baseball.hint;
 
-import game.baesball.ball.Balls;
+import game.baseball.ball.Balls;
 
 import java.util.Objects;
 

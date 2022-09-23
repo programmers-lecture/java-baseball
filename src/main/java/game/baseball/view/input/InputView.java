@@ -1,4 +1,4 @@
-package game.baesball.view.input;
+package game.baseball.view.input;
 
 import java.io.BufferedReader;
 import java.io.IOException;

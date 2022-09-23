@@ -1,6 +1,6 @@
-package game.baesball.player;
+package game.baseball.player;
 
-import game.baesball.ball.Balls;
+import game.baseball.ball.Balls;
 
 public interface Player {
 

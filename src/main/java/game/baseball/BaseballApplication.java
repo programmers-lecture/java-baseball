@@ -1,9 +1,9 @@
-package game.baesball;
+package game.baseball;
 
-import game.baesball.player.ComputerPlayer;
-import game.baesball.player.HumanPlayer;
-import game.baesball.player.Player;
-import game.baesball.game.GameHandler;
+import game.baseball.player.ComputerPlayer;
+import game.baseball.player.HumanPlayer;
+import game.baseball.player.Player;
+import game.baseball.game.GameHandler;
 
 public class BaseballApplication {
 

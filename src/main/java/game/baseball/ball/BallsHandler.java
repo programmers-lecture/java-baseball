@@ -1,10 +1,10 @@
-package game.baesball.ball;
+package game.baseball.ball;
 
-import game.baesball.util.RandomUtil;
-import game.baesball.view.output.OutputView;
+import game.baseball.util.RandomUtil;
+import game.baseball.view.output.OutputView;
 
-import static game.baesball.view.input.InputHandler.*;
-import static game.baesball.view.input.InputMessage.INPUT_PLAYER_BALLS;
+import static game.baseball.view.input.InputHandler.*;
+import static game.baseball.view.input.InputMessage.INPUT_PLAYER_BALLS;
 
 public class BallsHandler {
 

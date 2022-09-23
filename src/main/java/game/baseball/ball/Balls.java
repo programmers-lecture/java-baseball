@@ -1,4 +1,4 @@
-package game.baesball.ball;
+package game.baseball.ball;
 
 public class Balls {
 

@@ -1,4 +1,4 @@
-package game.baesball.util;
+package game.baseball.util;
 
 import java.util.Random;
 
