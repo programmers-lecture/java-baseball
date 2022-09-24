@@ -6,8 +6,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class BallsTest {
 
     Balls balls = Balls.createBalls(Arrays.asList(1, 2, 3));
@@ -16,24 +14,24 @@ class BallsTest {
     @Test
     @DisplayName("Balls 스트라이크 성공 테스트")
     void getStrikeTest() throws Exception {
-        Assertions.assertTrue(balls.getStrike(userBalls, 0));
+        Assertions.assertTrue(balls.isStrike(userBalls, 0));
     }
 
     @Test
     @DisplayName("Balls 스트라이크 실패 테스트")
     void getNotStrikeTest() throws Exception {
-        Assertions.assertTrue(balls.getStrike(userBalls, 1));
+        Assertions.assertTrue(balls.isStrike(userBalls, 1));
     }
 
     @Test
     @DisplayName("Balls 볼 성공 테스트")
     void getBallTest() throws Exception {
-        Assertions.assertTrue(balls.getBall(userBalls, 1));
+        Assertions.assertTrue(balls.isBall(userBalls, 1));
     }
 
     @Test
     @DisplayName("Balls 볼 실패 테스트")
     void getNotBallTest() throws Exception {
-        Assertions.assertFalse(balls.getBall(userBalls, 2));
+        Assertions.assertFalse(balls.isBall(userBalls, 2));
     }
 }

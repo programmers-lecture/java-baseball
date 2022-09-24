@@ -19,12 +19,12 @@ public class Balls {
         return new Balls(balls);
     }
 
-    public boolean getStrike(Balls userBalls, int index) {
+    public boolean isStrike(Balls userBalls, int index) {
         return balls.get(index).equals(userBalls.balls.get(index));
     }
 
 
-    public boolean getBall(Balls userBalls, int i) {
-        return balls.contains(userBalls.balls.get(i)) && !getStrike(userBalls, i);
+    public boolean isBall(Balls userBalls, int i) {
+        return balls.contains(userBalls.balls.get(i)) && !isStrike(userBalls, i);
     }
 }

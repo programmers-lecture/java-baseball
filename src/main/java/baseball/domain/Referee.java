@@ -12,19 +12,19 @@ public class Referee {
 
     public void getScore(Balls userBalls) {
         for (int i = 0; i < Balls.BALL_SIZE; i++) {
-            isStrike(userBalls, i);
-            isBall(userBalls, i);
+            getStrike(userBalls, i);
+            getBall(userBalls, i);
         }
     }
 
-    private void isBall(Balls userBalls, int i) {
-        if (comBalls.getBall(userBalls, i)) {
+    private void getBall(Balls userBalls, int i) {
+        if (comBalls.isBall(userBalls, i)) {
             Score.BALL.increaseScore();
         }
     }
 
-    private void isStrike(Balls userBalls, int i) {
-        if (comBalls.getStrike(userBalls, i)) {
+    private void getStrike(Balls userBalls, int i) {
+        if (comBalls.isStrike(userBalls, i)) {
             Score.STRIKE.increaseScore();
         }
     }
