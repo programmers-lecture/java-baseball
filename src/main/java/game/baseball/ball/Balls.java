@@ -1,5 +1,6 @@
 package game.baseball.ball;
 
+import java.util.Collections;
 import java.util.List;
 
 public class Balls {
@@ -11,7 +12,7 @@ public class Balls {
     }
 
     public List<Integer> getBalls() {
-        return balls;
+        return Collections.unmodifiableList(balls);
     }
 
 }
