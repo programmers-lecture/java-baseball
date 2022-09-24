@@ -19,25 +19,37 @@ public class RandomNumberGenerator implements NumberGenerator {
 
     private List<Integer> getRandomNumbers(Random random) {
         List<Integer> randomNumbers = new ArrayList<>();
-        while (randomNumbers.size() < GAME_SETTING.getBallSize()) {
-            randomNumbers.add(getRandomNumber(random, randomNumbers));
+        while (checkSizeUntilMaxBallSize(randomNumbers)) {
+            randomNumbers.add(
+                    Optional.ofNullable(
+                                    getRandomNumberWithCondition(random, randomNumbers))
+                            .orElseThrow(() -> new NumberFormatException("올바르지 않은 랜덤입니다.")));
         }
         return randomNumbers;
     }
 
-    private int getRandomNumber(Random random, List<Integer> randomNumbers) {
-        int number = getOverMinNumber(random);
-        if (randomNumbers.contains(number)) {
-            number = getRandomNumber(random, randomNumbers);
+    private Integer getRandomNumberWithCondition(Random random, List<Integer> randomNumbers) {
+        int selectedNumber = getRandomNumberLessThanMax(random);
+        if (checkLessThanMin(selectedNumber) ||
+                checkAlreadyExists(randomNumbers, selectedNumber)) {
+            return null;
         }
-        return number;
+        return selectedNumber;
     }
 
-    private int getOverMinNumber(Random random) {
-        int number = random.nextInt(GAME_SETTING.getMaxBallNumber()) + 1;
-        if (number < GAME_SETTING.getMinBallNumber()) {
-            number = getOverMinNumber(random);
-        }
-        return number;
+    private boolean checkSizeUntilMaxBallSize(List<Integer> randomNumbers) {
+        return randomNumbers.size() < GAME_SETTING.getBallSize();
+    }
+
+    private int getRandomNumberLessThanMax(Random random) {
+        return random.nextInt(GAME_SETTING.getMaxBallNumber()) + 1;
+    }
+
+    private boolean checkAlreadyExists(List<Integer> randomNumbers, int selectedNumber) {
+        return randomNumbers.contains(selectedNumber);
+    }
+
+    private boolean checkLessThanMin(int selectedNumber) {
+        return GAME_SETTING.getMinBallNumber() > selectedNumber;
     }
 }
