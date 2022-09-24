@@ -7,9 +7,12 @@ import java.util.stream.Collectors;
 
 public class InputView {
   private Scanner sc;
+  private static final char ZERO_CHAR = '0';
   private final String inputMessage = "숫자를 입력해주세요: ";
   private final String mainMessage = "게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.";
   private final String ERROR_MESSAGE = "잘못된 입력입니다. 게임을 종료합니다";
+
+  private final String MENU_RANGE_EXCEPTION = "해당 메뉴를 찾을 수 없습니다";
 
   public InputView() {
     sc = new Scanner(System.in);
@@ -47,9 +50,18 @@ public class InputView {
     }
   }
 
+  private void validateMenuRange(String replayValue){
+    int menu = replayValue.charAt(0)-ZERO_CHAR;
+    if(!(menu == 1 || menu == 2)){
+      throw new IllegalArgumentException(MENU_RANGE_EXCEPTION);
+    }
+  }
+
   public int mainDisplay(){
     System.out.println(mainMessage);
-    int replayValue = sc.nextInt();
-    return replayValue;
+    String replayValue = sc.next();
+    validation(replayValue);
+    validateMenuRange(replayValue);
+    return replayValue.charAt(0)-ZERO_CHAR;
   }
 }
