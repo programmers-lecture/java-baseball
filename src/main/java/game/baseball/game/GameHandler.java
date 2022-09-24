@@ -12,25 +12,20 @@ import static java.lang.Integer.parseInt;
 public class GameHandler {
 
     public boolean playGameAndGetEndType(Game game) {
-        boolean checkRestart = false;
-        boolean checkEnd = false;
-
         game.getComputerPlayer().playBall();
 
-        while (!checkEnd && untilMaxRound(game)) {
+        while (untilMaxRound(game)) {
             game.getHumanPlayer().playBall();
 
             Hints judgement = getJudge(game);
             broadcastJudgeByReferee(game, getJudge(game));
 
-            if (checkGameWin(judgement)) {
-                checkRestart = askRestartGame();
-                checkEnd = true;
-            }
+            if (checkGameWin(judgement)) break;
 
             game.nextRound();
         }
-        return checkRestart;
+        
+        return askRestartGame();
     }
 
     private void broadcastJudgeByReferee(Game game, Hints judgement) {
