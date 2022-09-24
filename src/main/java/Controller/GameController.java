@@ -1,24 +1,24 @@
 package Controller;
 
 
-import java.util.List;
+import Domain.Balls;
+import Domain.Computer;
 import Domain.Hint;
-import Domain.HintService;
+import Domain.Player;
 import View.InputView;
 import View.OutputView;
-import util.RandomNumber;
 
 public class GameController {
   InputView inputView;
-  RandomNumber randomNumber;
-  HintService hintService;
+  Computer computer;
+  Player player;
   OutputView outputView;
 
-  public GameController(InputView inputView, RandomNumber randomNumber, HintService hintService, OutputView outputView) {
+  public GameController(InputView inputView, Computer computer, Player player, OutputView outputView) {
     this.inputView = inputView;
     this.outputView = outputView;
-    this.randomNumber = randomNumber;
-    this.hintService = hintService;
+    this.computer = computer;
+    this.player = player;
   }
 
   public void run(){
@@ -27,10 +27,10 @@ public class GameController {
   }
 
   private void playGame(){
-    List<Integer> computerNumbers = randomNumber.createRandomNumbers();
+    Balls computerNumbers = computer.createRandomBalls();
     while(true){
-      List<Integer> playerNumbers = inputView.inputDisplay();
-      Hint hint = hintService.countStrikeAndBall(playerNumbers, computerNumbers);
+      Balls playerNumbers = player.createPlayerBalls(inputView.inputDisplay());
+      Hint hint = computerNumbers.countStrikeAndBall(playerNumbers);
       if(hint.getStrike()==3){
         outputView.closeRightDisplay();
         break;
@@ -50,6 +50,7 @@ public class GameController {
     if(replayValue==1){
       return true;
     }
+    outputView.close();
     return false;
   }
 }

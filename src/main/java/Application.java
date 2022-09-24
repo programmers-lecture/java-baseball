@@ -1,16 +1,16 @@
 import Controller.GameController;
-import Domain.HintService;
+import Domain.Computer;
+import Domain.Player;
 import View.InputView;
 import View.OutputView;
-import util.RandomNumber;
 
 public class Application {
   public static void main(String[] args) {
     InputView inputView = new InputView();
     OutputView outputView = new OutputView();
-    HintService hintService = new HintService();
-    RandomNumber randomNumber = new RandomNumber();
+    Player player = new Player();
+    Computer computer = new Computer();
 
-    new GameController(inputView, randomNumber, hintService, outputView).run();
+    new GameController(inputView, computer, player, outputView).run();
   }
 }
