@@ -9,7 +9,6 @@ public class InputView {
   private Scanner sc;
   private final String inputMessage = "숫자를 입력해주세요: ";
   private final String mainMessage = "게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.";
-
   private final String ERROR_MESSAGE = "잘못된 입력입니다. 게임을 종료합니다";
 
   public InputView() {
