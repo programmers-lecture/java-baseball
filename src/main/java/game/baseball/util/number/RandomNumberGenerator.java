@@ -20,9 +20,17 @@ public class RandomNumberGenerator implements NumberGenerator {
     private List<Integer> getRandomNumbers(Random random) {
         List<Integer> randomNumbers = new ArrayList<>();
         while (randomNumbers.size() < GAME_SETTING.getBallSize()) {
-            randomNumbers.add(getOverMinNumber(random));
+            randomNumbers.add(getRandomNumber(random, randomNumbers));
         }
         return randomNumbers;
+    }
+
+    private int getRandomNumber(Random random, List<Integer> randomNumbers) {
+        int number = getOverMinNumber(random);
+        if (randomNumbers.contains(number)) {
+            number = getRandomNumber(random, randomNumbers);
+        }
+        return number;
     }
 
     private int getOverMinNumber(Random random) {

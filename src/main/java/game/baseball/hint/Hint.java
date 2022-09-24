@@ -1,11 +1,11 @@
 package game.baseball.hint;
 
 import game.baseball.ball.Balls;
-import game.baseball.util.setting.GameSetting;
 
-import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.IntStream;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import static game.baseball.util.setting.GameSetting.GAME_SETTING;
 
@@ -43,7 +43,11 @@ public enum Hint {
         initializeScoresToZero();
         STRIKE.score = getStrikeCount(computerBalls, humanBalls);
         BALL.score = getBallCount(computerBalls, humanBalls);
-        if (STRIKE.score == 0 && BALL.score == 0) NOTHING.score = 1;
+        if (checkNothing()) NOTHING.score = 1;
+    }
+
+    private static boolean checkNothing() {
+        return STRIKE.score == 0 && BALL.score == 0;
     }
 
     private static int getStrikeCount(Balls computerBalls, Balls humanBalls) {
