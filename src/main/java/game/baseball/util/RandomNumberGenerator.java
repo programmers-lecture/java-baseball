@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
-import static game.baseball.game.GameSetting.GAME_SETTING_VERSION_01;
+import static game.baseball.setting.GameSetting.GAME_SETTING;
 
 public class RandomNumberGenerator implements NumberGenerator {
 
@@ -19,15 +19,15 @@ public class RandomNumberGenerator implements NumberGenerator {
 
     private List<Integer> getRandomNumbers(Random random) {
         List<Integer> randomNumbers = new ArrayList<>();
-        while (randomNumbers.size() < GAME_SETTING_VERSION_01.getBallSize()) {
+        while (randomNumbers.size() < GAME_SETTING.getBallSize()) {
             randomNumbers.add(getOverMinNumber(random));
         }
         return randomNumbers;
     }
 
     private int getOverMinNumber(Random random) {
-        int number = random.nextInt(GAME_SETTING_VERSION_01.getMaxBallNumber()) + 1;
-        if (number < GAME_SETTING_VERSION_01.getMinBallNumber()) {
+        int number = random.nextInt(GAME_SETTING.getMaxBallNumber()) + 1;
+        if (number < GAME_SETTING.getMinBallNumber()) {
             number = getOverMinNumber(random);
         }
         return number;

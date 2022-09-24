@@ -4,7 +4,7 @@ import game.baseball.ball.Balls;
 import game.baseball.hint.Hint;
 import game.baseball.hint.Hints;
 
-import static game.baseball.game.GameSetting.*;
+import static game.baseball.setting.GameSetting.*;
 
 public class Referee {
 
@@ -19,19 +19,24 @@ public class Referee {
 
     private void broadcastWin(Hints hints) {
         // TODO : 승리 출력
+        System.out.println("승리");
     }
 
     private void broadcastLoseAndHint(Hints hints) {
         // TODO : 패배 출력
+        System.out.println("패배");
        checkNothingThenBroadcast(hints);
         checkElseThenBroadcast(hints);
     }
 
     private void broadcastNothing(Hints hints) {
+        System.out.println(hints.getNotingHint().getName());
         // TODO : 낫싱 출력
     }
 
-    private void broadcastElseHint() {
+    private void broadcastElseHint(Hints hints) {
+        System.out.println(hints.getStrikeHint().getScore() + hints.getStrikeHint().getName() + " " +
+                            hints.getBallHint().getScore() + hints.getBallHint().getName());
         // TODO : 스트라이크 볼 출력
     }
 
@@ -56,7 +61,7 @@ public class Referee {
     }
 
     private void checkElseThenBroadcast(Hints hints) {
-        if (checkElseHint(hints)) broadcastElseHint();
+        if (checkElseHint(hints)) broadcastElseHint(hints);
     }
 
     private boolean checkElseHint(Hints hints) {

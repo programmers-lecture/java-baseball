@@ -3,7 +3,7 @@ package game.baseball.player;
 import game.baseball.ball.Balls;
 import game.baseball.util.NumberGenerator;
 
-import static game.baseball.game.GameSetting.GAME_SETTING;
+import static game.baseball.setting.GameSetting.GAME_SETTING;
 
 public class ComputerPlayer implements Player {
 
@@ -11,7 +11,7 @@ public class ComputerPlayer implements Player {
     private final NumberGenerator numberGenerator;
 
     public ComputerPlayer() {
-        numberGenerator  = GAME_SETTING.getComputerPlayerNumberGenerator();
+        this.numberGenerator = GAME_SETTING.getComputerPlayerNumberGenerator();
     }
 
     public void playBall() {

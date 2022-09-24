@@ -1,6 +1,7 @@
 package game.baseball.game;
 
 import game.baseball.player.ComputerPlayer;
+import game.baseball.player.HumanPlayer;
 import game.baseball.player.Player;
 
 public class Game {
@@ -12,7 +13,7 @@ public class Game {
 
     public Game() {
         computerPlayer = new ComputerPlayer();
-        humanPlayer = new ComputerPlayer();
+        humanPlayer = new HumanPlayer();
         referee = new Referee();
     }
 

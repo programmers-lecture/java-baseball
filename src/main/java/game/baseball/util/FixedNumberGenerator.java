@@ -3,7 +3,7 @@ package game.baseball.util;
 import java.util.List;
 import java.util.Optional;
 
-import static game.baseball.game.GameSetting.GAME_SETTING_VERSION_01;
+import static game.baseball.setting.GameSetting.GAME_SETTING;
 import static game.baseball.view.input.InputHandler.*;
 
 public class FixedNumberGenerator implements NumberGenerator {
@@ -24,7 +24,7 @@ public class FixedNumberGenerator implements NumberGenerator {
     }
 
     private boolean checkNumberSize(List<Integer> fixedNumbers) {
-        if (fixedNumbers.size() == GAME_SETTING_VERSION_01.getBallSize()) return true;
+        if (fixedNumbers.size() == GAME_SETTING.getBallSize()) return true;
         return false;
     }
 

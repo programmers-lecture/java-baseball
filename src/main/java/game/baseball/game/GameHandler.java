@@ -1,5 +1,7 @@
 package game.baseball.game;
 
+import game.baseball.hint.Hints;
+
 public class GameHandler {
 
     public void playGame(Game game) {
@@ -15,7 +17,6 @@ public class GameHandler {
                         );
 
         game.getReferee().broadcast(judgement);
-        game.getReferee().checkRound();
 
 //
 //        HintChecker gameHandler = new HintChecker();

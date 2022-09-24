@@ -5,7 +5,7 @@ import game.baseball.ball.Balls;
 import java.util.*;
 import java.util.stream.IntStream;
 
-import static game.baseball.game.GameSetting.GAME_SETTING;
+import static game.baseball.setting.GameSetting.GAME_SETTING;
 
 
 public enum Hint {
