@@ -2,7 +2,7 @@ package game.baseball.view.output;
 
 public class OutputView {
 
-    public void sendMessage(String message) {
+    public static void printMessage(String message) {
         System.out.println(message);
     }
 

@@ -10,7 +10,4 @@ public enum InputMessage {
         this.message = message;
     }
 
-    public static void printMessage(String message) {
-        System.out.print(message);
-    }
 }

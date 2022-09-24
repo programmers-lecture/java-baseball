@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static game.baseball.message.InputMessage.INPUT_PLAYER_BALLS;
-import static game.baseball.message.InputMessage.printMessage;
+import static game.baseball.view.output.OutputView.*;
 import static game.baseball.util.setting.GameSetting.GAME_SETTING;
 import static game.baseball.view.input.InputHandler.*;
 

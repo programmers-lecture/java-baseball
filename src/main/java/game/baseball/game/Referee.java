@@ -5,8 +5,8 @@ import game.baseball.hint.Hint;
 import game.baseball.hint.Hints;
 
 import static game.baseball.message.GameResultMessage.*;
-import static game.baseball.message.InputMessage.printMessage;
 import static game.baseball.util.setting.GameSetting.GAME_SETTING;
+import static game.baseball.view.output.OutputView.printMessage;
 
 public class Referee {
 
