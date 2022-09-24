@@ -6,8 +6,10 @@ import game.baseball.game.GameHandler;
 public class BaseballApplication {
 
     public static void main(String[] args) {
+        boolean gameContinue = true;
         GameHandler game = new GameHandler();
-
-        game.playGame(new Game());
+        while (gameContinue) {
+            gameContinue = game.playGameAndGetEndType(new Game());
+        }
     }
 }

@@ -32,7 +32,7 @@ public class RandomNumberGenerator implements NumberGenerator {
         int selectedNumber = getRandomNumberLessThanMax(random);
         if (checkLessThanMin(selectedNumber) ||
                 checkAlreadyExists(randomNumbers, selectedNumber)) {
-            return null;
+            selectedNumber = getRandomNumberWithCondition(random, randomNumbers);
         }
         return selectedNumber;
     }
