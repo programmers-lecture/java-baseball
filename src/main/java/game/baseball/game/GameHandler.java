@@ -17,22 +17,34 @@ public class GameHandler {
 
         game.getComputerPlayer().playBall();
 
-        while (!checkEnd) {
+        while (!checkEnd && untilMaxRound(game)) {
             game.getHumanPlayer().playBall();
 
-            Hints judgement =
-                    game.getReferee().judge(
-                            game.getComputerPlayer().getBalls(),
-                            game.getHumanPlayer().getBalls());
-
-            game.getReferee().broadcast(judgement);
+            Hints judgement = getJudge(game);
+            broadcastJudgeByReferee(game, getJudge(game));
 
             if (checkGameWin(judgement)) {
                 checkRestart = askRestartGame();
                 checkEnd = true;
             }
+
+            game.nextRound();
         }
         return checkRestart;
+    }
+
+    private void broadcastJudgeByReferee(Game game, Hints judgement) {
+        game.getReferee().broadcastGameResultMessage(judgement);
+    }
+
+    private Hints getJudge(Game game) {
+        return game.getReferee().judge(
+                game.getComputerPlayer().getBalls(),
+                game.getHumanPlayer().getBalls());
+    }
+
+    private boolean untilMaxRound(Game game) {
+        return game.getReferee().checkRound(game.getRound());
     }
 
     private boolean askRestartGame() {

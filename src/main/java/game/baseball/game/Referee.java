@@ -14,7 +14,7 @@ public class Referee {
         return Hint.getHints(computerBalls, humanBalls);
     }
 
-    public void broadcast(Hints hints) {
+    public void broadcastGameResultMessage(Hints hints) {
         checkWinThenBroadcast(hints);
         checkLoseThenBroadcast(hints);
     }
@@ -39,4 +39,7 @@ public class Referee {
         return hints.getStrikeHint().getScore() == GAME_SETTING.getBallSize();
     }
 
+    public boolean checkRound(int round) {
+        return round < GAME_SETTING.getMaxGameRound();
+    }
 }

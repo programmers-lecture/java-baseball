@@ -40,4 +40,8 @@ public enum GameSetting {
         return playerSetting.getComputerNumberGenerator();
     }
 
+    public int getMaxGameRound() {
+        return maxGameRound;
+    }
+
 }
