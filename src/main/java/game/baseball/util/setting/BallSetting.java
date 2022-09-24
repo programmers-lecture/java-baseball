@@ -1,4 +1,4 @@
-package game.baseball.setting;
+package game.baseball.util.setting;
 
 public class BallSetting {
 

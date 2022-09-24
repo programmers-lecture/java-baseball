@@ -1,9 +1,6 @@
-package game.baseball.setting;
+package game.baseball.util.setting;
 
-import game.baseball.player.Player;
-import game.baseball.util.NumberGenerator;
-
-import static game.baseball.setting.BallSetting.*;
+import game.baseball.util.number.NumberGenerator;
 
 public enum GameSetting {
 

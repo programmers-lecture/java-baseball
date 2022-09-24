@@ -20,8 +20,8 @@ public class InputHandler {
         return input;
     }
 
-    public static String[] splitBySpace(String input) {
-        return input.split(" ");
+    public static String[] splitEach(String input) {
+        return input.split("");
     }
 
     public static List<Integer> convertToIntegerList(String[] ballNumbers) {

@@ -1,9 +1,9 @@
 package game.baseball.player;
 
 import game.baseball.ball.Balls;
-import game.baseball.util.NumberGenerator;
+import game.baseball.util.number.NumberGenerator;
 
-import static game.baseball.setting.GameSetting.GAME_SETTING;
+import static game.baseball.util.setting.GameSetting.GAME_SETTING;
 
 public class HumanPlayer implements Player {
 

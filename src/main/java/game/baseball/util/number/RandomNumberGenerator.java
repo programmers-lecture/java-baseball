@@ -1,11 +1,11 @@
-package game.baseball.util;
+package game.baseball.util.number;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
-import static game.baseball.setting.GameSetting.GAME_SETTING;
+import static game.baseball.util.setting.GameSetting.GAME_SETTING;
 
 public class RandomNumberGenerator implements NumberGenerator {
 

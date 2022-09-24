@@ -6,9 +6,9 @@ import game.baseball.player.Player;
 
 public class Game {
 
-    private Player computerPlayer;
-    private Player humanPlayer;
-    private Referee referee;
+    private final Player computerPlayer;
+    private final Player humanPlayer;
+    private final Referee referee;
     private int round;
 
     public Game() {

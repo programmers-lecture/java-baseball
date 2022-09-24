@@ -1,8 +1,8 @@
-package game.baseball.setting;
+package game.baseball.util.setting;
 
-import game.baseball.util.FixedNumberGenerator;
-import game.baseball.util.NumberGenerator;
-import game.baseball.util.RandomNumberGenerator;
+import game.baseball.util.number.FixedNumberGenerator;
+import game.baseball.util.number.NumberGenerator;
+import game.baseball.util.number.RandomNumberGenerator;
 
 public class PlayerSetting {
 

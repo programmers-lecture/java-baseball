@@ -1,9 +1,11 @@
-package game.baseball.util;
+package game.baseball.util.number;
 
 import java.util.List;
 import java.util.Optional;
 
-import static game.baseball.setting.GameSetting.GAME_SETTING;
+import static game.baseball.message.InputMessage.INPUT_PLAYER_BALLS;
+import static game.baseball.message.InputMessage.printMessage;
+import static game.baseball.util.setting.GameSetting.GAME_SETTING;
 import static game.baseball.view.input.InputHandler.*;
 
 public class FixedNumberGenerator implements NumberGenerator {
@@ -16,7 +18,8 @@ public class FixedNumberGenerator implements NumberGenerator {
     }
 
     private List<Integer> getFixedNumbers() {
-        List<Integer> fixedNumbers = convertToIntegerList(splitBySpace(readLine()));
+        printMessage(INPUT_PLAYER_BALLS.name());
+        List<Integer> fixedNumbers = convertToIntegerList(splitEach(readLine()));
         if (!checkNumberSize(fixedNumbers)) {
             fixedNumbers = getFixedNumbers();
         }
@@ -24,8 +27,7 @@ public class FixedNumberGenerator implements NumberGenerator {
     }
 
     private boolean checkNumberSize(List<Integer> fixedNumbers) {
-        if (fixedNumbers.size() == GAME_SETTING.getBallSize()) return true;
-        return false;
+        return fixedNumbers.size() == GAME_SETTING.getBallSize();
     }
 
 }
