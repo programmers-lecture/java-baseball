@@ -1,25 +1,35 @@
 package game.baseball.game;
 
-import game.baseball.hint.Hint;
-import game.baseball.hint.HintChecker;
-import game.baseball.hint.HintHandler;
-import game.baseball.player.Player;
-
 public class GameHandler {
 
-    public void playGame(Player computer, Player human, boolean isRestart, int gameCount) {
-        HintChecker gameHandler = new HintChecker();
-        HintHandler hintHandler = new HintHandler();
+    public void playGame(Game game) {
 
-        if (isRestart || gameCount == 0) computer.playGame();
-        human.playGame();
+        game.getComputerPlayer().playBall();
+        game.getHumanPlayer().playBall();
 
-        Hint hint = hintHandler.createHint(
-                computer.getBalls(),
-                human.getBalls()
-        );
+        Hints judgement =
+                game.getReferee()
+                        .judge(
+                                game.getComputerPlayer().getBalls(),
+                                game.getHumanPlayer().getBalls()
+                        );
 
-        boolean checkWin = gameHandler.checkWinResult(hint);
-        if (!checkWin || gameHandler.checkRestartGame()) this.playGame(computer, human, checkWin, gameCount + 1);
+        game.getReferee().broadcast(judgement);
+        game.getReferee().checkRound();
+
+//
+//        HintChecker gameHandler = new HintChecker();
+//        HintHandler hintHandler = new HintHandler();
+//
+//        if (isRestart || gameCount == 0) computer.playGame();
+//        human.playGame();
+//
+//        Hints hint = hintHandler.createHint(
+//                computer.getBalls(),
+//                human.getBalls()
+//        );
+//
+//        boolean checkWin = gameHandler.checkWinResult(hint);
+//        if (!checkWin || gameHandler.checkRestartGame()) this.playGame(computer, human, checkWin, gameCount + 1);
     }
 }

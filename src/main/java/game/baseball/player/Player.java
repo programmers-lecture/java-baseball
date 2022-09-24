@@ -4,7 +4,7 @@ import game.baseball.ball.Balls;
 
 public interface Player {
 
-    void setBalls(Balls balls);
+    void playBall();
 
     Balls getBalls();
 
