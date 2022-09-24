@@ -1,8 +1,10 @@
 package game.baseball.hint;
 
 import game.baseball.ball.Balls;
+import game.baseball.util.setting.GameSetting;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.IntStream;
 
 import static game.baseball.util.setting.GameSetting.GAME_SETTING;
@@ -45,10 +47,11 @@ public enum Hint {
     }
 
     private static int getStrikeCount(Balls computerBalls, Balls humanBalls) {
-        return (int) IntStream
-                .range(0, GAME_SETTING.getBallSize())
-                .filter(round -> checkStrike(computerBalls, humanBalls, round))
-                .count();
+        int strike = 0;
+        for (int round = 0; round < GAME_SETTING.getBallSize(); round++) {
+            if (checkStrike(computerBalls, humanBalls, round)) strike++;
+        }
+        return strike;
     }
 
     private static boolean checkStrike(Balls computerBalls, Balls humanBalls, int round) {
@@ -56,10 +59,19 @@ public enum Hint {
     }
 
     private static int getBallCount(Balls computerBalls, Balls humanBalls) {
-        Set<Integer> totalBalls = new HashSet<>();
-        totalBalls.addAll(computerBalls.getBalls());
-        totalBalls.addAll(humanBalls.getBalls());
-        return totalBalls.size() - getStrikeCount(computerBalls, humanBalls);
+        int ball = 0;
+        for (int round = 0; round < GAME_SETTING.getBallSize(); round++) {
+            if (checkBallMatchAny(computerBalls, humanBalls, round) &&
+                !checkStrike(computerBalls, humanBalls, round))
+                ball++;
+        }
+        return ball;
+    }
+
+    private static boolean checkBallMatchAny(Balls computerBalls, Balls humanBalls, int round) {
+        return computerBalls
+                .getBalls()
+                .contains(humanBalls.getBalls().get(round));
     }
 
     public String getName() {

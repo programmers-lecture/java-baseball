@@ -18,7 +18,7 @@ public class FixedNumberGenerator implements NumberGenerator {
     }
 
     private List<Integer> getFixedNumbers() {
-        printMessage(INPUT_PLAYER_BALLS.name());
+        printMessage(INPUT_PLAYER_BALLS.getMessage());
         List<Integer> fixedNumbers = convertToIntegerList(splitEach(readLine()));
         if (!checkNumberSize(fixedNumbers)) {
             fixedNumbers = getFixedNumbers();
