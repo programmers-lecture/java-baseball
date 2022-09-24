@@ -8,9 +8,9 @@ public class BaseballApplication {
     public static void main(String[] args) {
         GameHandler game = new GameHandler();
 
-        boolean gameContinue = true;
-        while (gameContinue) {
+        boolean gameContinue;
+        do {
             gameContinue = game.playGameAndGetEndType(new Game());
-        }
+        } while (gameContinue);
     }
 }

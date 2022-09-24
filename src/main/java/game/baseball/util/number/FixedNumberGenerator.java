@@ -3,10 +3,11 @@ package game.baseball.util.number;
 import java.util.List;
 import java.util.Optional;
 
+import static game.baseball.message.ExceptionMessage.INPUT_FORMAT_ERROR;
 import static game.baseball.message.InputMessage.INPUT_PLAYER_BALLS;
-import static game.baseball.view.output.OutputView.*;
 import static game.baseball.util.setting.GameSetting.GAME_SETTING;
 import static game.baseball.view.input.InputHandler.*;
+import static game.baseball.view.output.OutputView.printMessage;
 
 public class FixedNumberGenerator implements NumberGenerator {
 
@@ -14,7 +15,8 @@ public class FixedNumberGenerator implements NumberGenerator {
     public List<Integer> generate() {
         return Optional
                 .ofNullable(getFixedNumbers())
-                .orElseThrow(() -> new NumberFormatException("올바르지 않은 포맷입니다.")); // TODO : Exception 관리
+                .orElseThrow(
+                        () -> new NumberFormatException(INPUT_FORMAT_ERROR.getErrorMessage()));
     }
 
     private List<Integer> getFixedNumbers() {

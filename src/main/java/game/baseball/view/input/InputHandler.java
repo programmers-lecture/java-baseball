@@ -1,8 +1,13 @@
 package game.baseball.view.input;
 
+import game.baseball.message.ExceptionMessage;
+
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
+
+import static game.baseball.message.ExceptionMessage.*;
 
 public class InputHandler {
 
@@ -21,12 +26,14 @@ public class InputHandler {
     }
 
     public static String[] splitEach(String input) {
-        return input.split("");
+        return Optional.of(input.split(""))
+                .orElseThrow(() -> new IllegalArgumentException(INPUT_FORMAT_ERROR.getErrorMessage()));
     }
 
     public static List<Integer> convertToIntegerList(String[] ballNumbers) {
-        return Arrays.stream(ballNumbers)
-                .map(Integer::parseInt)
-                .collect(Collectors.toList());
+        return Optional.of(Arrays.stream(ballNumbers)
+                        .map(Integer::parseInt)
+                        .collect(Collectors.toList()))
+                .orElseThrow(() -> new IllegalArgumentException(INPUT_FORMAT_ERROR.getErrorMessage()));
     }
 }

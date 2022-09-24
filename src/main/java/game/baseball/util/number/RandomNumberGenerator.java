@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
+import static game.baseball.message.ExceptionMessage.RANDOM_NUMBER_GENERATOR_ERROR;
 import static game.baseball.util.setting.GameSetting.GAME_SETTING;
 
 public class RandomNumberGenerator implements NumberGenerator {
@@ -14,16 +15,19 @@ public class RandomNumberGenerator implements NumberGenerator {
     @Override
     public List<Integer> generate() {
         return Optional.of(getRandomNumbers(random))
-                .orElseThrow(() -> new NumberFormatException("올바르지 않은 랜덤입니다.")); // TODO : Exception 관리
+                .orElseThrow(
+                        () -> new NumberFormatException(
+                                RANDOM_NUMBER_GENERATOR_ERROR.getErrorMessage()));
     }
 
     private List<Integer> getRandomNumbers(Random random) {
         List<Integer> randomNumbers = new ArrayList<>();
         while (checkSizeUntilMaxBallSize(randomNumbers)) {
             randomNumbers.add(
-                    Optional.ofNullable(
-                                    getRandomNumberWithCondition(random, randomNumbers))
-                            .orElseThrow(() -> new NumberFormatException("올바르지 않은 랜덤입니다.")));
+                    Optional.ofNullable(getRandomNumberWithCondition(random, randomNumbers))
+                            .orElseThrow(
+                                    () -> new NumberFormatException(
+                                            RANDOM_NUMBER_GENERATOR_ERROR.getErrorMessage())));
         }
         return randomNumbers;
     }
