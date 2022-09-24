@@ -65,5 +65,4 @@ public class Balls {
   public List<Ball> getBalls(){
     return balls;
   }
-
 }

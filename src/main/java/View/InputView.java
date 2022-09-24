@@ -1,9 +1,6 @@
 package View;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public class InputView {
   private Scanner sc;
@@ -23,6 +20,14 @@ public class InputView {
     String inputValue = sc.next();
     validation(inputValue);
     return inputValue;
+  }
+
+  public int mainDisplay(){
+    System.out.println(mainMessage);
+    String replayValue = sc.next();
+    validation(replayValue);
+    validateMenuRange(replayValue);
+    return replayValue.charAt(0)-ZERO_CHAR;
   }
 
   private void validation(String inputValue) {
@@ -55,13 +60,5 @@ public class InputView {
     if(!(menu == 1 || menu == 2)){
       throw new IllegalArgumentException(MENU_RANGE_EXCEPTION);
     }
-  }
-
-  public int mainDisplay(){
-    System.out.println(mainMessage);
-    String replayValue = sc.next();
-    validation(replayValue);
-    validateMenuRange(replayValue);
-    return replayValue.charAt(0)-ZERO_CHAR;
   }
 }

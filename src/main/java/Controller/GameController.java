@@ -1,6 +1,5 @@
 package Controller;
 
-
 import Domain.Balls;
 import Domain.Computer;
 import Domain.Hint;
