@@ -59,7 +59,9 @@ public enum Hint {
     }
 
     private static boolean checkStrike(Balls computerBalls, Balls humanBalls, int round) {
-        return Objects.equals(computerBalls.getBalls().get(round), humanBalls.getBalls().get(round));
+        return Objects.equals(
+                computerBalls.getBalls().get(round),
+                humanBalls.getBalls().get(round));
     }
 
     private static int getBallCount(Balls computerBalls, Balls humanBalls) {

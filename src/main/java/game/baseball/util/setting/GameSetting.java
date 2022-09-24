@@ -20,10 +20,6 @@ public enum GameSetting {
         this.playerSetting = playerSetting;
     }
 
-    public int getMaxGameRound() {
-        return maxGameRound;
-    }
-
     public int getBallSize() {
         return ballSetting.getBallSize();
     }

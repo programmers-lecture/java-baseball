@@ -1,14 +1,13 @@
 package game.baseball.game;
 
 import game.baseball.hint.Hints;
-import game.baseball.util.setting.GameEndSetting;
 import game.baseball.view.input.InputHandler;
 import game.baseball.view.output.OutputView;
 
-import static game.baseball.message.InputMessage.*;
-import static game.baseball.util.setting.GameEndSetting.*;
-import static game.baseball.util.setting.GameSetting.*;
-import static java.lang.Integer.*;
+import static game.baseball.message.InputMessage.ASK_RESTART_GAME;
+import static game.baseball.util.setting.GameEndSetting.RESTART_GAME;
+import static game.baseball.util.setting.GameSetting.GAME_SETTING;
+import static java.lang.Integer.parseInt;
 
 public class GameHandler {
 
@@ -21,11 +20,10 @@ public class GameHandler {
         while (!checkEnd) {
             game.getHumanPlayer().playBall();
 
-            Hints judgement = game.getReferee()
-                                    .judge(
-                                            game.getComputerPlayer().getBalls(),
-                                            game.getHumanPlayer().getBalls()
-                                    );
+            Hints judgement =
+                    game.getReferee().judge(
+                            game.getComputerPlayer().getBalls(),
+                            game.getHumanPlayer().getBalls());
 
             game.getReferee().broadcast(judgement);
 
@@ -34,7 +32,6 @@ public class GameHandler {
                 checkEnd = true;
             }
         }
-
         return checkRestart;
     }
 
@@ -46,4 +43,5 @@ public class GameHandler {
     private boolean checkGameWin(Hints judgement) {
         return judgement.getStrikeHint().getScore() == GAME_SETTING.getBallSize();
     }
+
 }

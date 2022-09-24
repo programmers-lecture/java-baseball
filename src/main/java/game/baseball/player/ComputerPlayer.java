@@ -16,7 +16,6 @@ public class ComputerPlayer implements Player {
 
     public void playBall() {
         this.balls = new Balls(numberGenerator.generate());
-        balls.getBalls().forEach(System.out::print);
     }
 
     public Balls getBalls() {

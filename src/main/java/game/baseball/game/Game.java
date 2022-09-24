@@ -29,7 +29,4 @@ public class Game {
         return referee;
     }
 
-    public void nextRound() {
-        round++;
-    }
 }
