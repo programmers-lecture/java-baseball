@@ -10,18 +10,42 @@ public class InputView {
   private final String inputMessage = "숫자를 입력해주세요: ";
   private final String mainMessage = "게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.";
 
+  private final String ERROR_MESSAGE = "잘못된 입력입니다. 게임을 종료합니다";
+
   public InputView() {
     sc = new Scanner(System.in);
   }
 
-  public List<Integer> inputDisplay(){
+  public String inputDisplay(){
     System.out.print(inputMessage);
     String inputValue = sc.next();
-    List<Integer> playerNumbers = Arrays
-        .stream(inputValue.split(""))
-        .map(s -> Integer.parseInt(s))
-        .collect(Collectors.toList());
-    return playerNumbers;
+    validation(inputValue);
+    return inputValue;
+  }
+
+  private void validation(String inputValue) {
+    validateNull(inputValue);
+    validateNumbers(inputValue);
+  }
+
+  private void validateNull(String inputValue){
+    if(inputValue==null){
+      throw new IllegalArgumentException(ERROR_MESSAGE);
+    }
+  }
+
+  private void validateNumbers(String inputValue){
+    String[] splitInputValue = inputValue.split("");
+    for(int i=0; i<splitInputValue.length; i++){
+      char number = splitInputValue[i].charAt(0);
+      validateNum(number);
+    }
+  }
+
+  private void validateNum(char number) {
+    if(!Character.isDigit(number)){
+      throw new IllegalArgumentException(ERROR_MESSAGE);
+    }
   }
 
   public int mainDisplay(){
