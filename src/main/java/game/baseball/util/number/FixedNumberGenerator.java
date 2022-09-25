@@ -1,5 +1,7 @@
 package game.baseball.util.number;
 
+import game.baseball.view.input.InputHandler;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -22,9 +24,6 @@ public class FixedNumberGenerator implements NumberGenerator {
     private List<Integer> getFixedNumbers() {
         printMessage(INPUT_PLAYER_BALLS.getMessage());
         List<Integer> fixedNumbers = convertToIntegerList(splitEach(readLine()));
-        if (!checkNumberSize(fixedNumbers)) {
-            fixedNumbers = getFixedNumbers();
-        }
         return fixedNumbers;
     }
 

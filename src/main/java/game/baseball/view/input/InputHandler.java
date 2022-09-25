@@ -1,7 +1,5 @@
 package game.baseball.view.input;
 
-import game.baseball.view.output.OutputView;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -22,17 +20,22 @@ public class InputHandler {
         String input = "";
         input = inputView.read();
 
-        if (!checkDigit(input) || checkInputEmpty(input)) {
-            OutputView.printMessage(INPUT_FORMAT_ERROR.getErrorMessage());
-            input = InputHandler.readLine();
-        }
-
         return input;
     }
 
     public static String[] splitEach(String inputBall) {
-        return Optional.of(inputBall.split(""))
-                .orElseThrow(() -> new IllegalArgumentException(INPUT_FORMAT_ERROR.getErrorMessage()));
+        String[] balls = inputBall.split("");
+        if (!checkSplitFormWithMaxBallSizeAndOnlyDigit(balls)) {
+            throw new IllegalArgumentException(INPUT_FORMAT_ERROR.getErrorMessage());
+        }
+        return balls;
+    }
+
+    private static boolean checkSplitFormWithMaxBallSizeAndOnlyDigit(String[] balls) {
+        return Arrays.stream(balls)
+                .filter(InputHandler::checkOneDigit)
+                .count() ==
+                GAME_SETTING.getBallSize();
     }
 
     public static List<Integer> convertToIntegerList(String[] ballNumbers) {
@@ -42,13 +45,9 @@ public class InputHandler {
                 .orElseThrow(() -> new IllegalArgumentException(INPUT_FORMAT_ERROR.getErrorMessage()));
     }
 
-    private static boolean checkInputEmpty(String input) {
-        return input.length() == 0;
-    }
-
-    private static boolean checkDigit(String inputBall) {
+    public static boolean checkOneDigit(String inputBall) {
         return Pattern
-                .compile("^[1-9]{" + GAME_SETTING.getBallSize() + "}$")
+                .compile("^[1-9]+$")
                 .matcher(inputBall)
                 .find();
     }
