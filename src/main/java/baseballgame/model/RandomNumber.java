@@ -1,6 +1,6 @@
 package baseballgame.model;
 
-import java.util.LinkedHashSet;
+import java.util.Collection;
 import java.util.Set;
 
 public class RandomNumber {
@@ -10,7 +10,7 @@ public class RandomNumber {
         this.randomNumber = randomNumber;
     }
 
-    public Set<Integer> getRandomNumber() {
+    public Collection<? extends Integer> getRandomNumber() {
         return randomNumber;
     }
 }
