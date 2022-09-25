@@ -14,6 +14,6 @@ public class RandomNumberImpl implements RandomNumber {
         return Stream.generate(() -> (int) (Math.random() * Ball.MAX_BALL_NUMBER) + Ball.MIN_BALL_NUMBER)
             .distinct()
             .limit(Balls.BALL_SIZE)
-            .collect(Collectors.toList());
+            .collect(Collectors.toUnmodifiableList());
     }
 }
