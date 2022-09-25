@@ -12,30 +12,32 @@ public class InputView {
 
     public static final String INPUT_ERROR_MSG = "입력이 잘못되었습니다.";
     private final BufferedReader bufferedReader = new BufferedReader(
-        new InputStreamReader(System.in));
+            new InputStreamReader(System.in));
 
     public List<Integer> inputNumbersToList() {
-        return Arrays.stream(numberValidation(inputLine()).split(""))
-            .map(Integer::parseInt)
-            .collect(Collectors.toList());
+        return Arrays.stream(sss().split(""))
+                .map(Integer::parseInt)
+                .collect(Collectors.toList());
     }
 
-    private String inputLine() {
+    public String inputLine() {
         try {
-            return bufferedReader.readLine();
+            return bufferedReader.readLine().trim();
         } catch (IOException e) {
             throw new RuntimeException(INPUT_ERROR_MSG);
         }
     }
 
-    private String numberValidation(String numbers) {
-        if (Pattern.matches("^\\d{3}", numbers)) {
-            return numbers;
-        }
-        throw new IllegalArgumentException(INPUT_ERROR_MSG);
+    private boolean numberValidation(String numbers) {
+        return Pattern.matches("^\\d{3}", numbers);
     }
 
-    public String inputReplay(){
-        return inputLine().trim();
+    private String sss() {
+        String numbers;
+        do {
+            OutputView.printRequestNumberMSG();
+            numbers = inputLine();
+        } while (!numberValidation(numbers));
+        return numbers;
     }
 }

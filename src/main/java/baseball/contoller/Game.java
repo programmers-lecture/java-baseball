@@ -21,7 +21,6 @@ public class Game {
         Score.initPoint();
         while (!Score.isOutPoint()) {
             Score.initPoint();
-            OutputView.printRequestNumberMSG();
             referee.getScore(Balls.createBalls(inputView.inputNumbersToList()));
             OutputView.printString(Score.pointToString());
         }
@@ -33,7 +32,7 @@ public class Game {
 
     public void userIsReplay() {
         OutputView.printAskReplay();
-        if (inputView.inputReplay().equals(REPLAY_NUMBER)) {
+        if (inputView.inputLine().equals(REPLAY_NUMBER)) {
             this.isReplay = true;
             return;
         }
