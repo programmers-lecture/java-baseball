@@ -1,12 +1,10 @@
 package game.baseball.ball;
 
-import game.baseball.util.setting.GameSetting;
-
 import java.util.Collections;
 import java.util.List;
 
-import static game.baseball.message.ExceptionMessage.*;
-import static game.baseball.util.setting.GameSetting.*;
+import static game.baseball.message.ExceptionMessage.INCORRECT_BALL_SIZE;
+import static game.baseball.util.setting.GameSetting.GAME_SETTING;
 
 public class Balls {
 

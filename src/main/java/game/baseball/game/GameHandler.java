@@ -1,54 +1,32 @@
 package game.baseball.game;
 
 import game.baseball.hint.Hints;
-import game.baseball.view.input.InputHandler;
-import game.baseball.view.output.OutputView;
-
-import static game.baseball.message.InputMessage.ASK_RESTART_GAME;
-import static game.baseball.util.setting.GameEndSetting.RESTART_GAME;
-import static game.baseball.util.setting.GameSetting.GAME_SETTING;
-import static java.lang.Integer.parseInt;
+import game.baseball.player.ComputerPlayer;
+import game.baseball.player.HumanPlayer;
 
 public class GameHandler {
 
-    public boolean playGameAndGetEndType(Game game) {
-        game.getComputerPlayer().playBall();
+    public boolean playGameAndGetEndType(ComputerPlayer computerPlayer,
+                                         HumanPlayer humanPlayer,
+                                         Referee referee,
+                                         Round round) {
 
-        while (untilMaxRound(game)) {
-            game.getHumanPlayer().playBall();
+        computerPlayer.playBall();
+        while (!referee.checkRoundEnd(round)) {
+            humanPlayer.playBall();
 
-            Hints judgement = getJudge(game);
-            broadcastJudgeByReferee(game, getJudge(game));
+            Hints judgement = referee.judge(
+                    computerPlayer.getBalls(),
+                    humanPlayer.getBalls());
 
-            if (checkGameWin(judgement)) break;
+            referee.broadcastGameResultMessage(judgement);
 
-            game.nextRound();
+            if (referee.checkWin(judgement)) break;
+
+            referee.nextRound(round);
         }
-        
-        return askRestartGame();
-    }
 
-    private void broadcastJudgeByReferee(Game game, Hints judgement) {
-        game.getReferee().broadcastGameResultMessage(judgement);
-    }
-
-    private Hints getJudge(Game game) {
-        return game.getReferee().judge(
-                game.getComputerPlayer().getBalls(),
-                game.getHumanPlayer().getBalls());
-    }
-
-    private boolean untilMaxRound(Game game) {
-        return game.getReferee().checkRound(game.getRound());
-    }
-
-    private boolean askRestartGame() {
-        OutputView.printMessage(ASK_RESTART_GAME.getMessage());
-        return parseInt(InputHandler.readLine()) == RESTART_GAME.getEndType();
-    }
-
-    private boolean checkGameWin(Hints judgement) {
-        return judgement.getStrikeHint().getScore() == GAME_SETTING.getBallSize();
+        return referee.askRestartGame();
     }
 
 }
