@@ -1,5 +1,6 @@
 package baseballgame.service;
 
+import baseballgame.controller.BaseballGame;
 import org.junit.jupiter.api.Test;
 
 import java.util.Set;
@@ -9,9 +10,7 @@ class RandomNumberGeneratorTest {
 
     @Test
     void createRandomNumber() {
-        for (int i = 0; i < 100; i++) {
-            Set<Integer> randomNumber = randomNumberGenerator.createRandomNumber();
-            System.out.println("randomNumber = " + randomNumber);
-        }
+        BaseballGame baseballGame = new BaseballGame();
+        baseballGame.run();
     }
 }

@@ -9,4 +9,8 @@ public class RandomNumber {
     public RandomNumber(Set<Integer> randomNumber) {
         this.randomNumber = randomNumber;
     }
+
+    public Set<Integer> getRandomNumber() {
+        return randomNumber;
+    }
 }

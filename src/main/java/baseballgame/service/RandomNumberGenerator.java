@@ -9,7 +9,11 @@ public class RandomNumberGenerator {
     private static final int MAX_BALL_NUMBER = 9;
     private static final int BOUNDARY_NUMBER = 1;
 
-    public Set<Integer> createRandomNumber() {
+    public RandomNumber generateRandomNumber() {
+        return new RandomNumber(generateNumberSet());
+    }
+
+    private Set<Integer> generateNumberSet() {
         Set<Integer> set = new LinkedHashSet<>();
         fillNumbers(set);
         return set;
