@@ -1,4 +1,6 @@
 package baseballgame;
 
-public class Application {
+import baseballgame.controller.BaseballGame;
+
+public class Application extends BaseballGame {
 }
