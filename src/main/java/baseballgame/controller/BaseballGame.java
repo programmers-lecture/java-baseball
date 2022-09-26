@@ -16,7 +16,6 @@ public class BaseballGame {
             ArrayList<Integer> userNumber = new ArrayList<>();
             RandomNumber randomNumber = randomNumberGenerator.generateRandomNumber();
             String gameResult = referee.judge(userNumber, new ArrayList<>(randomNumber.getRandomNumber()));
-
         }
     }
 }

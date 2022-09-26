@@ -1,6 +1,5 @@
 package baseballgame.model;
 
-import java.util.Collection;
 import java.util.Set;
 
 public class RandomNumber {
@@ -10,7 +9,7 @@ public class RandomNumber {
         this.randomNumber = randomNumber;
     }
 
-    public Collection<? extends Integer> getRandomNumber() {
+    public Set<Integer> getRandomNumber() {
         return randomNumber;
     }
 }
