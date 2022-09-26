@@ -1,8 +1,8 @@
 package baseballgame.controller;
 
+import baseballgame.model.ConfirmType;
 import baseballgame.model.GameStatus;
 import baseballgame.model.RandomNumber;
-import baseballgame.service.ConfirmAdditionalGame;
 import baseballgame.service.RandomNumberGenerator;
 import baseballgame.service.Referee;
 import baseballgame.service.ResultMessageGenerator;
@@ -10,15 +10,14 @@ import baseballgame.view.InputView;
 import baseballgame.view.OutputView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class BaseballGame {
     private final RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
     private final ResultMessageGenerator resultMessageGenerator = new ResultMessageGenerator();
     private final Referee referee = new Referee();
 
-    private final OutputView outputView = new OutputView();
     private final InputView inputView = new InputView();
+    private final OutputView outputView = new OutputView();
 
     public void run() {
         while (true) {
@@ -32,6 +31,11 @@ public class BaseballGame {
             if (GameStatus.isGameOver()) {
                 outputView.printGameOverMessage(GameStatus.STRIKE.getState());
                 outputView.printConfirmMessage();
+
+                ConfirmType confirmType = inputView.readConfirmType();
+                if (confirmType == ConfirmType.DECLINE) {
+                    break;
+                }
             }
         }
     }

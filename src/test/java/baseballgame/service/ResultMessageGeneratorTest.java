@@ -1,7 +1,9 @@
 package baseballgame.service;
 
+import baseballgame.model.ConfirmType;
 import baseballgame.model.GameStatus;
 import baseballgame.model.RandomNumber;
+import baseballgame.view.InputView;
 import baseballgame.view.OutputView;
 import org.junit.jupiter.api.Test;
 
@@ -16,6 +18,7 @@ class ResultMessageGeneratorTest {
     private final ResultMessageGenerator resultMessageGenerator = new ResultMessageGenerator();
     private final Referee referee = new Referee();
     private final OutputView outputView = new OutputView();
+    private final InputView inputView = new InputView();
 
     @Test
     void 결과_메시지() {
@@ -38,6 +41,10 @@ class ResultMessageGeneratorTest {
 
         if (GameStatus.isGameOver()) {
             outputView.printGameOverMessage(GameStatus.STRIKE.getState());
+            ConfirmType confirmType = inputView.readConfirmType();
+            if (confirmType == ConfirmType.DECLINE) {
+                System.out.println("게임 종료");
+            }
         }
     }
 }
