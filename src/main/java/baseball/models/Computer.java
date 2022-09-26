@@ -5,6 +5,8 @@ import baseball.utils.RandomUtil;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Computer implements User {
     private List<Integer> balls = new ArrayList<>();
@@ -19,10 +21,10 @@ public class Computer implements User {
     }
 
     private void createBalls() {
-        while(balls.size() < Baseball.BALL_SIZE) {
-            int randomNumber = RandomUtil.createRandomNumber();
-            if(!balls.contains(randomNumber))
-                balls.add(randomNumber);
-        }
+        balls = IntStream.generate(RandomUtil::createRandomNumber)
+                .distinct()
+                .limit(Baseball.BALL_SIZE)
+                .boxed()
+                .collect(Collectors.toList());
     }
 }
