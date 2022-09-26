@@ -9,6 +9,9 @@ public class Scores {
     private static final int INCREASE_POINT = 1;
     private final Map<Score, Integer> scores = new EnumMap<>(Score.class);
 
+    {
+        pointReset();
+    }
 
     public void pointReset() {
         Arrays.stream(Score.values()).forEach(i -> scores.put(i, INIT_POINT));

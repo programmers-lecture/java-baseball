@@ -18,7 +18,22 @@ class ScoresTest {
         //then
         assertAll(
                 () -> Assertions.assertThat(scores.getPoint(Score.STRIKE)).isEqualTo(0),
-                () ->  Assertions.assertThat(scores.getPoint(Score.BALL)).isEqualTo(0)
+                () -> Assertions.assertThat(scores.getPoint(Score.BALL)).isEqualTo(0)
+        );
+    }
+
+    @Test
+    @DisplayName("점수 상승 테스트")
+    void increasePointTest() throws Exception {
+        //given
+        Scores scores = new Scores();
+        //when
+        scores.increasePoint(Score.STRIKE);
+        scores.increasePoint(Score.BALL);
+        //then
+        assertAll(
+                () -> Assertions.assertThat(scores.getPoint(Score.STRIKE)).isEqualTo(1),
+                () -> Assertions.assertThat(scores.getPoint(Score.BALL)).isEqualTo(1)
         );
     }
 
