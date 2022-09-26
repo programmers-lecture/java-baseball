@@ -5,6 +5,7 @@ import java.util.stream.IntStream;
 
 public class Baseball {
     public static final int BALL_SIZE = 3;
+
     private int strikeCount = 0;
     private int ballCount = 0;
 
