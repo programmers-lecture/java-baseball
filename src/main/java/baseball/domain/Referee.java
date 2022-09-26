@@ -3,7 +3,6 @@ package baseball.domain;
 import java.util.List;
 
 public class Referee {
-
     private final Balls comBalls;
 
     public Referee(List<Integer> comBalls) {
@@ -19,13 +18,13 @@ public class Referee {
 
     private void getBall(Balls userBalls, int i) {
         if (comBalls.isBall(userBalls, i)) {
-            Score.BALL.increaseScore();
+            Score.increasePoint(Score.BALL);
         }
     }
 
     private void getStrike(Balls userBalls, int i) {
         if (comBalls.isStrike(userBalls, i)) {
-            Score.STRIKE.increaseScore();
+            Score.increasePoint(Score.STRIKE);
         }
     }
 }

@@ -1,44 +1,39 @@
 package baseball.domain;
 
+import java.util.Arrays;
+import java.util.HashMap;
+
 public enum Score {
 
-    STRIKE(0), BALL(0);
+    STRIKE("스트라이크"), BALL("볼"), NOTHING("낫싱");
 
-    public static final int INIT_POINT = 0;
-    public static final String STRIKE_MSG = " 스트라이크";
-    public static final String BALL_MSG = " 볼";
-    public static final String NOTHING_MSG = "낫싱";
-    private int point;
+    private static final HashMap<Score, Integer> scoreMap = new HashMap<>();
+    private static final int INIT_POINT = 0;
+    private static final int INCREASE_POINT = 1;
+    private final String value;
 
-    Score(int score) {
-        this.point = score;
+    static {
+        pointReset();
     }
 
-    public void increaseScore() {
-        point++;
+    private Score(String value) {
+        this.value = value;
     }
 
-    public static void initPoint() {
-        for (Score score : Score.values()) {
-            score.point = INIT_POINT;
-        }
+    public static void increasePoint(Score judgement) {
+        scoreMap.put(judgement, scoreMap.get(judgement) + INCREASE_POINT);
     }
 
-    public static boolean isOutPoint() {
-        return STRIKE.point == Balls.BALL_SIZE;
+    public static void pointReset() {
+        Arrays.stream(values()).forEach(i -> scoreMap.put(i, INIT_POINT));
     }
 
-    public static String pointToString() {
-        if (STRIKE.point == 0 && BALL.point == 0) {
-            return NOTHING_MSG;
-        }
-        if (STRIKE.point != 0 && BALL.point == 0) {
-            return STRIKE.point + STRIKE_MSG;
-        }
-        if (STRIKE.point == 0 && BALL.point != 0) {
-            return BALL.point + BALL_MSG;
-        }
-        return STRIKE.point + STRIKE_MSG + BALL.point + BALL_MSG;
+    public String getValue() {
+        return value;
+    }
+
+    public static int getPoint(Score score) {
+        return scoreMap.get(score);
     }
 }
 

@@ -40,4 +40,13 @@ public class InputView {
         } while (!numberValidation(numbers));
         return numbers;
     }
+
+    public int inputToInt() {
+        try {
+            return Integer.parseInt(bufferedReader.readLine());
+        } catch (IOException e) {
+            throw new RuntimeException(INPUT_ERROR_MSG);
+        }
+    }
+
 }

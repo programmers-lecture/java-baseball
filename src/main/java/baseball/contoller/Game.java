@@ -8,34 +8,56 @@ import baseball.util.RandomNumberImpl;
 import baseball.view.InputView;
 import baseball.view.OutputView;
 
-public class Game {
+import static baseball.contoller.Game.GameType.Start;
+import static baseball.domain.Score.*;
 
-    public static final String REPLAY_NUMBER = "1";
-    private InputView inputView = new InputView();
-    private RandomNumber randomNumber = new RandomNumberImpl();
+public class Game {
+    enum GameType {
+        Start(1), End(2);
+
+        private int typeValue;
+
+        GameType(int typeValue) {
+            this.typeValue = typeValue;
+        }
+    }
+
+    private final InputView inputView = new InputView();
+    private final RandomNumber randomNumber = new RandomNumberImpl();
     private Referee referee;
-    private static boolean isReplay = true;
 
     public void run() {
         referee = new Referee(randomNumber.createRandomNumbers());
-        Score.initPoint();
-        while (!Score.isOutPoint()) {
-            Score.initPoint();
+        do {
+            Score.pointReset();
             referee.getScore(Balls.createBalls(inputView.inputNumbersToList()));
-            OutputView.printString(Score.pointToString());
-        }
+            OutputView.printString(this.toString());
+        } while (!isOutPoint());
     }
 
-    public static boolean getIsReplay() {
-        return isReplay;
-    }
-
-    public void userIsReplay() {
+    public boolean userIsReplay() {
         OutputView.printAskReplay();
-        if (inputView.inputLine().equals(REPLAY_NUMBER)) {
-            this.isReplay = true;
-            return;
-        }
-        this.isReplay = false;
+        return inputView.inputToInt() == Start.typeValue;
     }
+
+    private boolean isOutPoint() {
+        return Score.getPoint(STRIKE) == Balls.BALL_SIZE;
+    }
+
+    @Override
+    public String toString() {
+        if (Score.getPoint(STRIKE) == 0 && Score.getPoint(BALL) == 0) {
+            return NOTHING.getValue();
+        }
+
+        StringBuilder sb = new StringBuilder();
+        if (Score.getPoint(BALL) > 0) {
+            sb.append(Score.getPoint(BALL)).append(BALL.getValue()).append(" ");
+        }
+        if (Score.getPoint(STRIKE) > 0) {
+            sb.append(Score.getPoint(STRIKE)).append(STRIKE.getValue());
+        }
+        return sb.toString();
+    }
+
 }

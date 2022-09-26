@@ -4,11 +4,10 @@ import baseball.contoller.Game;
 
 public class Application {
     public static void main(String[] args) {
-        Game game = null;
-        while (game.getIsReplay()) {
+        Game game;
+        do {
             game = new Game();
             game.run();
-            game.userIsReplay();
-        }
+        } while (game.userIsReplay());
     }
 }

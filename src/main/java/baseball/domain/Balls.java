@@ -15,7 +15,7 @@ public class Balls {
 
     public static Balls createBalls(List<Integer> numbers) {
         List<Ball> balls = numbers.stream().map(i -> (new Ball(i)))
-            .collect(Collectors.toList());
+                .collect(Collectors.toList());
         return new Balls(balls);
     }
 
