@@ -3,6 +3,7 @@ package baseball.models;
 import baseball.utils.RandomUtil;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Computer implements User {
@@ -14,7 +15,7 @@ public class Computer implements User {
 
     @Override
     public List<Integer> getBall() {
-        return ball;
+        return Collections.unmodifiableList(ball);
     }
 
     @Override

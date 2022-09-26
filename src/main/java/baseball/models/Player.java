@@ -1,6 +1,7 @@
 package baseball.models;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Player implements User {
@@ -14,7 +15,7 @@ public class Player implements User {
 
     @Override
     public List<Integer> getBall() {
-        return ball;
+        return Collections.unmodifiableList(ball);
     }
 
     @Override
