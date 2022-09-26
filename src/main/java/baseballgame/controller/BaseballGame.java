@@ -2,9 +2,11 @@ package baseballgame.controller;
 
 import baseballgame.model.GameStatus;
 import baseballgame.model.RandomNumber;
+import baseballgame.service.ConfirmAdditionalGame;
 import baseballgame.service.RandomNumberGenerator;
 import baseballgame.service.Referee;
 import baseballgame.service.ResultMessageGenerator;
+import baseballgame.view.InputView;
 import baseballgame.view.OutputView;
 
 import java.util.ArrayList;
@@ -16,6 +18,7 @@ public class BaseballGame {
     private final Referee referee = new Referee();
 
     private final OutputView outputView = new OutputView();
+    private final InputView inputView = new InputView();
 
     public void run() {
         while (true) {
@@ -28,6 +31,7 @@ public class BaseballGame {
 
             if (GameStatus.isGameOver()) {
                 outputView.printGameOverMessage(GameStatus.STRIKE.getState());
+                outputView.printConfirmMessage();
             }
         }
     }
