@@ -27,16 +27,15 @@ public class Baseball {
     }
 
     private void countStrike(List<Integer> playerBall, List<Integer> computerBall) {
-        long strikeCount = IntStream.range(0, playerBall.size())
+        this.strikeCount = Math.toIntExact(IntStream.range(0, playerBall.size())
                 .filter(idx -> playerBall.get(idx).equals(computerBall.get(idx)))
-                .count();
-        this.strikeCount = Long.valueOf(strikeCount).intValue();
+                .count());
     }
 
     private void countBall(List<Integer> playerBall, List<Integer> computerBall) {
-        long totalCount = playerBall.stream()
+        int totalCount = Math.toIntExact(playerBall.stream()
                 .filter(computerBall::contains)
-                .count();
-        this.ballCount = Long.valueOf(totalCount).intValue() - strikeCount;
+                .count());
+        this.ballCount = totalCount - strikeCount;
     }
 }
