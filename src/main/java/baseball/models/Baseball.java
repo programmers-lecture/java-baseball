@@ -5,19 +5,19 @@ import java.util.stream.IntStream;
 
 public class Baseball {
     public static final int BALL_SIZE = 3;
-    private Integer strikeCount = 0;
-    private Integer ballCount = 0;
+    private int strikeCount = 0;
+    private int ballCount = 0;
 
     public void playBaseball(List<Integer> playerBall, List<Integer> computerBall) {
         countStrike(playerBall, computerBall);
         countBall(playerBall, computerBall);
     }
 
-    public Integer getStrikeCount() {
+    public int getStrikeCount() {
         return strikeCount;
     }
 
-    public Integer getBallCount() {
+    public int getBallCount() {
         return ballCount;
     }
 
