@@ -40,6 +40,7 @@ public class BaseballGame {
                     randomNumber = randomNumberGenerator.generateRandomNumber();
                     inputView.clearInput();
                 } else {
+                    outputView.printGameExitMessage();
                     break;
                 }
             }
