@@ -9,23 +9,15 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Computer implements User {
-    private List<Integer> balls;
+    private Balls balls;
 
     public Computer() {
-        balls = new ArrayList<>();
-        createBalls();
+        balls = new Balls();
+        balls.createComputerBalls();
     }
 
     @Override
     public List<Integer> getBalls() {
-        return Collections.unmodifiableList(balls);
-    }
-
-    private void createBalls() {
-        balls = IntStream.generate(RandomUtil::createRandomNumber)
-                .distinct()
-                .limit(Baseball.BALL_SIZE)
-                .boxed()
-                .collect(Collectors.toList());
+        return balls.getBalls();
     }
 }

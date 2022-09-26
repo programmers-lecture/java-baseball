@@ -5,21 +5,15 @@ import java.util.Collections;
 import java.util.List;
 
 public class Player implements User {
-    private List<Integer> balls;
+    private Balls balls;
 
     public Player(String[] playerNumber) {
-        balls = new ArrayList<>();
-        createBalls(playerNumber);
+        balls = new Balls();
+        balls.createPlayerBalls(playerNumber);
     }
 
     @Override
     public List<Integer> getBalls() {
-        return Collections.unmodifiableList(balls);
-    }
-
-    private void createBalls(String[] playerNumber) {
-        for(String number: playerNumber) {
-            balls.add(Integer.parseInt(number));
-        }
+        return balls.getBalls();
     }
 }
