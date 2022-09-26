@@ -7,9 +7,11 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class InputView {
+    private static final String GUIDE_MESSAGE = "숫자를 입력해주세요 : ";
     private static final int CONFIRM = 1;
     private static final int DECLINE = 2;
-    private static final String GUIDE_MESSAGE = "숫자를 입력해주세요 : ";
+
+    private final Scanner scanner = new Scanner(System.in);
 
     public ArrayList<Integer> readNumber() {
         System.out.print(GUIDE_MESSAGE);
@@ -22,7 +24,6 @@ public class InputView {
 
         return numbers;
     }
-    private final Scanner scanner = new Scanner(System.in);
 
     public ConfirmType readConfirmType() {
         int confirmType = scanner.nextInt();
