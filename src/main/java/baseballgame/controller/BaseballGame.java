@@ -25,8 +25,8 @@ public class BaseballGame {
             RandomNumber randomNumber = randomNumberGenerator.generateRandomNumber();
 
             referee.judge(userNumber, new ArrayList<>(randomNumber.getRandomNumber()));
-
             outputView.printMessage(resultMessageGenerator.generateJudgmentMessage());
+            GameStatus.initialize();
 
             if (GameStatus.isGameOver()) {
                 outputView.printGameOverMessage(GameStatus.STRIKE.getState());
@@ -37,6 +37,8 @@ public class BaseballGame {
                     break;
                 }
             }
+
+            GameStatus.initialize();
         }
     }
 }

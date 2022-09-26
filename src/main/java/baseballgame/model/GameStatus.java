@@ -32,4 +32,9 @@ public enum GameStatus {
     public static boolean isZero(GameStatus gameStatus) {
         return gameStatus.state == NOTHING;
     }
+
+    public static void initialize() {
+        BALL.state = 0;
+        STRIKE.state = 0;
+    }
 }
