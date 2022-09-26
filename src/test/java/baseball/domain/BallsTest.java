@@ -20,7 +20,7 @@ class BallsTest {
     @Test
     @DisplayName("Balls 스트라이크 실패 테스트")
     void getNotStrikeTest() throws Exception {
-        Assertions.assertTrue(balls.isStrike(userBalls, 1));
+        Assertions.assertFalse(balls.isStrike(userBalls, 1));
     }
 
     @Test
