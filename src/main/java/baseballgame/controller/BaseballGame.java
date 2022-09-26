@@ -3,6 +3,7 @@ package baseballgame.controller;
 import baseballgame.model.ConfirmType;
 import baseballgame.model.GameStatus;
 import baseballgame.model.RandomNumber;
+import baseballgame.model.UserNumber;
 import baseballgame.service.RandomNumberGenerator;
 import baseballgame.service.Referee;
 import baseballgame.service.ResultMessageGenerator;
@@ -21,10 +22,10 @@ public class BaseballGame {
 
     public void run() {
         while (true) {
-            ArrayList<Integer> userNumber = inputView.readNumber();
+            UserNumber userNumber = new UserNumber(inputView.readNumber());
             RandomNumber randomNumber = randomNumberGenerator.generateRandomNumber();
 
-            referee.judge(userNumber, new ArrayList<>(randomNumber.getRandomNumber()));
+            referee.judge(userNumber.getUserNumber(), new ArrayList<>(randomNumber.getRandomNumber()));
             outputView.printMessage(resultMessageGenerator.generateJudgmentMessage());
             GameStatus.initialize();
 
