@@ -9,6 +9,7 @@ public class InputView {
     private static final String GUIDE_MESSAGE = "숫자를 입력해주세요 : ";
     private static final String NOT_DIGIT_EXCEPTION_MESSAGE = "오류: 입력한 값이 숫자가 아닙니다.";
     private static final String NOT_VALID_SIZE_EXCEPTION_MESSAGE = "오류: 3개의 숫자만 입력야합니다.";
+    private static final String WRONG_CHOICE_EXCEPTION_MESSAGE = "오류: 1 또는 2만 입력해야합니다.";
     private static final int CONFIRM = 1;
     private static final int DECLINE = 2;
     private static final int VALID_SIZE = 3;
@@ -33,7 +34,11 @@ public class InputView {
         if (confirmType == CONFIRM) {
             return ConfirmType.CONFIRM;
         }
-        return ConfirmType.DECLINE;
+        if (confirmType == DECLINE) {
+            return ConfirmType.DECLINE;
+        }
+
+        throw new IllegalArgumentException(WRONG_CHOICE_EXCEPTION_MESSAGE);
     }
 
     public void clearInput() {
