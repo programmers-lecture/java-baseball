@@ -21,7 +21,7 @@ public class BaseballGame {
 
     public void run() {
         while (true) {
-            ArrayList<Integer> userNumber = new ArrayList<>();
+            ArrayList<Integer> userNumber = inputView.readNumber();
             RandomNumber randomNumber = randomNumberGenerator.generateRandomNumber();
 
             referee.judge(userNumber, new ArrayList<>(randomNumber.getRandomNumber()));
