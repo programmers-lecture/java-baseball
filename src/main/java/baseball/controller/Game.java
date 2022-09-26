@@ -6,8 +6,6 @@ import baseball.models.Player;
 import baseball.views.InputView;
 import baseball.views.OutputView;
 
-import java.util.List;
-
 public class Game {
     private Game() {}
 
