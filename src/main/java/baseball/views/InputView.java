@@ -1,6 +1,6 @@
 package baseball.views;
 
-import baseball.models.Baseball;
+import baseball.models.Balls;
 
 import java.util.Scanner;
 
@@ -11,7 +11,7 @@ public class InputView {
         System.out.println("숫자를 입력해주세요 : ");
         Scanner scanner = new Scanner(System.in);
         String[] playerNumber = scanner.next().split("");
-        if(playerNumber.length > Baseball.BALL_SIZE)
+        if(playerNumber.length > Balls.BALL_SIZE)
             throw new IllegalArgumentException();
         return playerNumber;
     }

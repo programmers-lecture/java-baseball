@@ -1,6 +1,6 @@
 package baseball.views;
 
-import baseball.models.Baseball;
+import baseball.models.Balls;
 
 public class OutputView {
     private OutputView() {}
@@ -10,6 +10,6 @@ public class OutputView {
     }
 
     public static void printBaseballEnd() {
-        System.out.println(Baseball.BALL_SIZE + "개의 숫자를 모두 맞히셨습니다! 게임 종료");
+        System.out.println(Balls.BALL_SIZE + "개의 숫자를 모두 맞히셨습니다! 게임 종료");
     }
 }

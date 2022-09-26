@@ -9,6 +9,8 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Balls {
+    public static final int BALL_SIZE = 3;
+
     private List<Integer> balls;
 
     public Balls() {
@@ -24,7 +26,7 @@ public class Balls {
     public void createComputerBalls() {
         balls = IntStream.generate(RandomUtil::createRandomNumber)
                 .distinct()
-                .limit(Baseball.BALL_SIZE)
+                .limit(BALL_SIZE)
                 .boxed()
                 .collect(Collectors.toList());
     }
