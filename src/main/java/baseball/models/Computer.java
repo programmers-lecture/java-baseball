@@ -9,9 +9,10 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Computer implements User {
-    private List<Integer> balls = new ArrayList<>();
+    private List<Integer> balls;
 
     public Computer() {
+        balls = new ArrayList<>();
         createBalls();
     }
 

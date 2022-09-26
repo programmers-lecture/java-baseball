@@ -6,10 +6,11 @@ import java.util.List;
 
 public class Player implements User {
     private String[] playerNumber;
-    private List<Integer> balls = new ArrayList<>();
+    private List<Integer> balls;
 
     public Player(String[] playerNumber) {
         this.playerNumber = playerNumber;
+        balls = new ArrayList<>();
         createBalls();
     }
 
