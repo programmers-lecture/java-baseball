@@ -17,7 +17,7 @@ public class Game {
             while(baseball.isBaseBallEnd()) {
                 String[] playerNumber = InputView.inputPlayerNumber();
                 Player player = new Player(playerNumber);
-                baseball.playBaseball(player.getBall(), computer.getBall());
+                baseball.playBaseball(player.getBalls(), computer.getBalls());
                 OutputView.printBaseballResult(baseball.getBallCount(), baseball.getStrikeCount());
             }
             isGameActive = InputView.inputRerunOrNot();

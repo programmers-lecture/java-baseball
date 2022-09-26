@@ -6,22 +6,22 @@ import java.util.List;
 
 public class Player implements User {
     private String[] playerNumber;
-    private List<Integer> ball = new ArrayList<>();
+    private List<Integer> balls = new ArrayList<>();
 
     public Player(String[] playerNumber) {
         this.playerNumber = playerNumber;
-        createBall();
+        createBalls();
     }
 
     @Override
-    public List<Integer> getBall() {
-        return Collections.unmodifiableList(ball);
+    public List<Integer> getBalls() {
+        return Collections.unmodifiableList(balls);
     }
 
     @Override
-    public void createBall() {
+    public void createBalls() {
         for(String number: playerNumber) {
-            ball.add(Integer.parseInt(number));
+            balls.add(Integer.parseInt(number));
         }
     }
 }

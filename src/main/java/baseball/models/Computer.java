@@ -7,23 +7,23 @@ import java.util.Collections;
 import java.util.List;
 
 public class Computer implements User {
-    private List<Integer> ball = new ArrayList<>();
+    private List<Integer> balls = new ArrayList<>();
 
     public Computer() {
-        createBall();
+        createBalls();
     }
 
     @Override
-    public List<Integer> getBall() {
-        return Collections.unmodifiableList(ball);
+    public List<Integer> getBalls() {
+        return Collections.unmodifiableList(balls);
     }
 
     @Override
-    public void createBall() {
-        while(ball.size() < Baseball.BALL_SIZE) {
+    public void createBalls() {
+        while(balls.size() < Baseball.BALL_SIZE) {
             int randomNumber = RandomUtil.createRandomNumber();
-            if(!ball.contains(randomNumber))
-                ball.add(randomNumber);
+            if(!balls.contains(randomNumber))
+                balls.add(randomNumber);
         }
     }
 }
