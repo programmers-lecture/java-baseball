@@ -3,9 +3,7 @@ package baseballgame.model;
 public enum GameStatus {
     // TODO: fuctional interface를 사용
     BALL(0),
-    STRIKE(0),
-    OUT(0),
-    GAME_OVER(0);
+    STRIKE(0);
 
     private Integer state;
     private static final int GAME_OVER_CONDITION = 3;
