@@ -18,8 +18,10 @@ public class Game {
                 String[] playerNumber = InputView.inputPlayerNumber();
                 Player player = new Player(playerNumber);
                 baseball.playBaseball(player.getBalls(), computer.getBalls());
-                OutputView.printBaseballResult(baseball.getBallCount(), baseball.getStrikeCount());
+                String result = baseball.getBaseballResult();
+                OutputView.printBaseballResult(result);
             }
+            OutputView.printBaseballEnd();
             isGameActive = InputView.inputRerunOrNot();
         }
     }
