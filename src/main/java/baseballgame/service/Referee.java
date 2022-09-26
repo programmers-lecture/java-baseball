@@ -5,13 +5,8 @@ import baseballgame.model.GameStatus;
 import java.util.ArrayList;
 
 public class Referee {
-    public String judge(ArrayList<Integer> userNumber, ArrayList<Integer> randomNumber) {
+    public void judge(ArrayList<Integer> userNumber, ArrayList<Integer> randomNumber) {
         checkBallAndStrike(userNumber, randomNumber);
-        return generateMessageByGameResult();
-    }
-
-    private String generateMessageByGameResult() {
-        return null;
     }
 
     private void checkBallAndStrike(ArrayList<Integer> userNumber, ArrayList<Integer> randomNumber) {
