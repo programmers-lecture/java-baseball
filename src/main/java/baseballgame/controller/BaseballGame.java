@@ -38,6 +38,7 @@ public class BaseballGame {
                 ConfirmType confirmType = inputView.readConfirmType();
                 if (confirmType == ConfirmType.CONFIRM) {
                     randomNumber = randomNumberGenerator.generateRandomNumber();
+                    inputView.clearInput();
                 } else {
                     break;
                 }

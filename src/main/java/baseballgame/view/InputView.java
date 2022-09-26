@@ -33,4 +33,8 @@ public class InputView {
         }
         return ConfirmType.DECLINE;
     }
+
+    public void clearInput() {
+        scanner.nextLine();
+    }
 }
