@@ -1,5 +1,6 @@
 package baseballgame.service;
 
+import baseballgame.model.GameStatus;
 import baseballgame.model.RandomNumber;
 import baseballgame.view.OutputView;
 import org.junit.jupiter.api.Test;
@@ -19,8 +20,8 @@ class ResultMessageGeneratorTest {
     @Test
     void 결과_메시지() {
         ArrayList<Integer> userNumber = new ArrayList<>();
-        userNumber.add(1);
-        userNumber.add(1);
+        userNumber.add(3);
+        userNumber.add(4);
         userNumber.add(1);
 
         Set<Integer> set = new LinkedHashSet<>();
@@ -34,5 +35,9 @@ class ResultMessageGeneratorTest {
         referee.judge(userNumber, new ArrayList<>(randomNumber.getRandomNumber()));
 
         outputView.printMessage(resultMessageGenerator.generateJudgmentMessage());
+
+        if (GameStatus.isGameOver()) {
+            outputView.printGameOverMessage(GameStatus.STRIKE.getState());
+        }
     }
 }

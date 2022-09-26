@@ -1,5 +1,6 @@
 package baseballgame.controller;
 
+import baseballgame.model.GameStatus;
 import baseballgame.model.RandomNumber;
 import baseballgame.service.RandomNumberGenerator;
 import baseballgame.service.Referee;
@@ -20,8 +21,14 @@ public class BaseballGame {
         while (true) {
             ArrayList<Integer> userNumber = new ArrayList<>();
             RandomNumber randomNumber = randomNumberGenerator.generateRandomNumber();
+
             referee.judge(userNumber, new ArrayList<>(randomNumber.getRandomNumber()));
+
             outputView.printMessage(resultMessageGenerator.generateJudgmentMessage());
+
+            if (GameStatus.isGameOver()) {
+                outputView.printGameOverMessage(GameStatus.STRIKE.getState());
+            }
         }
     }
 }
