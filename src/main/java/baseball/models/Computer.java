@@ -18,8 +18,7 @@ public class Computer implements User {
         return Collections.unmodifiableList(balls);
     }
 
-    @Override
-    public void createBalls() {
+    private void createBalls() {
         while(balls.size() < Baseball.BALL_SIZE) {
             int randomNumber = RandomUtil.createRandomNumber();
             if(!balls.contains(randomNumber))

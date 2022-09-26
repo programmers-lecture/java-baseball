@@ -4,5 +4,4 @@ import java.util.List;
 
 public interface User {
     List<Integer> getBalls();
-    void createBalls();
 }

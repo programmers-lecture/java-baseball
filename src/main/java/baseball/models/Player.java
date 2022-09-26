@@ -18,8 +18,7 @@ public class Player implements User {
         return Collections.unmodifiableList(balls);
     }
 
-    @Override
-    public void createBalls() {
+    private void createBalls() {
         for(String number: playerNumber) {
             balls.add(Integer.parseInt(number));
         }
