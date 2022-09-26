@@ -21,9 +21,11 @@ public class BaseballGame {
     private final OutputView outputView = new OutputView();
 
     public void run() {
+        RandomNumber randomNumber = randomNumberGenerator.generateRandomNumber();
+
         while (true) {
             UserNumber userNumber = new UserNumber(inputView.readNumber());
-            RandomNumber randomNumber = randomNumberGenerator.generateRandomNumber();
+            System.out.println("randomNumber = " + randomNumber.getRandomNumber());
 
             referee.judge(userNumber.getUserNumber(), new ArrayList<>(randomNumber.getRandomNumber()));
             outputView.printMessage(resultMessageGenerator.generateJudgmentMessage());
@@ -34,7 +36,9 @@ public class BaseballGame {
                 outputView.printConfirmMessage();
 
                 ConfirmType confirmType = inputView.readConfirmType();
-                if (confirmType == ConfirmType.DECLINE) {
+                if (confirmType == ConfirmType.CONFIRM) {
+                    randomNumber = randomNumberGenerator.generateRandomNumber();
+                } else {
                     break;
                 }
             }
