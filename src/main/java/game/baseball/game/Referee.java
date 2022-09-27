@@ -8,6 +8,7 @@ import game.baseball.view.output.OutputView;
 
 import static game.baseball.message.GameResultMessage.*;
 import static game.baseball.message.InputMessage.ASK_RESTART_GAME;
+import static game.baseball.util.setting.BallSetting.BALL_LEAST_SIZE;
 import static game.baseball.util.setting.GameEndSetting.RESTART_GAME;
 import static game.baseball.util.setting.GameSetting.GAME_SETTING;
 import static game.baseball.view.output.OutputView.printMessage;
@@ -45,7 +46,7 @@ public class Referee {
     }
 
     public boolean checkWin(Hints hints) {
-        return hints.getStrikeHint().getScore() == GAME_SETTING.getBallSize();
+        return hints.getStrikeHint().getScore() == BALL_LEAST_SIZE.getBallSetting();
     }
 
     public boolean checkRoundEnd(Round round) {

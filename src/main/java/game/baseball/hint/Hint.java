@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-import static game.baseball.util.setting.GameSetting.GAME_SETTING;
+import static game.baseball.util.setting.BallSetting.BALL_LEAST_SIZE;
 
 
 public enum Hint {
@@ -39,23 +39,22 @@ public enum Hint {
         return hints;
     }
 
-    private static void setEachScores(Balls computerBalls, Balls humanBalls) {
-        initializeScoresToZero();
-        STRIKE.score = getStrikeCount(computerBalls, humanBalls);
-        BALL.score = getBallCount(computerBalls, humanBalls);
-        if (checkNothing()) NOTHING.score = 1;
-    }
-
-    private static boolean checkNothing() {
-        return STRIKE.score == 0 && BALL.score == 0;
-    }
-
     private static int getStrikeCount(Balls computerBalls, Balls humanBalls) {
         int strike = 0;
-        for (int round = 0; round < GAME_SETTING.getBallSize(); round++) {
+        for (int round = 0; round < BALL_LEAST_SIZE.getBallSetting(); round++) {
             if (checkStrike(computerBalls, humanBalls, round)) strike++;
         }
         return strike;
+    }
+
+    private static int getBallCount(Balls computerBalls, Balls humanBalls) {
+        int ball = 0;
+        for (int round = 0; round < BALL_LEAST_SIZE.getBallSetting(); round++) {
+            if (checkBallMatchAny(computerBalls, humanBalls, round) &&
+                    !checkStrike(computerBalls, humanBalls, round))
+                ball++;
+        }
+        return ball;
     }
 
     private static boolean checkStrike(Balls computerBalls, Balls humanBalls, int round) {
@@ -64,20 +63,21 @@ public enum Hint {
                 humanBalls.getBalls().get(round));
     }
 
-    private static int getBallCount(Balls computerBalls, Balls humanBalls) {
-        int ball = 0;
-        for (int round = 0; round < GAME_SETTING.getBallSize(); round++) {
-            if (checkBallMatchAny(computerBalls, humanBalls, round) &&
-                !checkStrike(computerBalls, humanBalls, round))
-                ball++;
-        }
-        return ball;
-    }
-
     private static boolean checkBallMatchAny(Balls computerBalls, Balls humanBalls, int round) {
         return computerBalls
                 .getBalls()
                 .contains(humanBalls.getBalls().get(round));
+    }
+
+    private static boolean checkNothing() {
+        return STRIKE.score == 0 && BALL.score == 0;
+    }
+
+    private static void setEachScores(Balls computerBalls, Balls humanBalls) {
+        initializeScoresToZero();
+        STRIKE.score = getStrikeCount(computerBalls, humanBalls);
+        BALL.score = getBallCount(computerBalls, humanBalls);
+        if (checkNothing()) NOTHING.score = 1;
     }
 
     public String getName() {

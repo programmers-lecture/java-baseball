@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import static game.baseball.message.ExceptionMessage.INPUT_FORMAT_ERROR;
-import static game.baseball.util.setting.GameSetting.GAME_SETTING;
+import static game.baseball.util.setting.BallSetting.BALL_LEAST_SIZE;
 
 public class InputHandler {
 
@@ -35,7 +35,7 @@ public class InputHandler {
         return Arrays.stream(balls)
                 .filter(InputHandler::checkOneDigit)
                 .count() ==
-                GAME_SETTING.getBallSize();
+                BALL_LEAST_SIZE.getBallSetting();
     }
 
     public static List<Integer> convertToIntegerList(String[] ballNumbers) {

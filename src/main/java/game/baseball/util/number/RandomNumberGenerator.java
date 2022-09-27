@@ -6,7 +6,7 @@ import java.util.Optional;
 import java.util.Random;
 
 import static game.baseball.message.ExceptionMessage.RANDOM_NUMBER_GENERATOR_ERROR;
-import static game.baseball.util.setting.GameSetting.GAME_SETTING;
+import static game.baseball.util.setting.BallSetting.*;
 
 public class RandomNumberGenerator implements NumberGenerator {
 
@@ -42,11 +42,11 @@ public class RandomNumberGenerator implements NumberGenerator {
     }
 
     private boolean checkSizeUntilMaxBallSize(List<Integer> randomNumbers) {
-        return randomNumbers.size() < GAME_SETTING.getBallSize();
+        return randomNumbers.size() < BALL_LEAST_SIZE.getBallSetting();
     }
 
     private int getRandomNumberLessThanMax(Random random) {
-        return random.nextInt(GAME_SETTING.getMaxBallNumber()) + 1;
+        return random.nextInt(BALL_MAX_NUMBER.getBallSetting()) + 1;
     }
 
     private boolean checkAlreadyExists(List<Integer> randomNumbers, int selectedNumber) {
@@ -54,6 +54,6 @@ public class RandomNumberGenerator implements NumberGenerator {
     }
 
     private boolean checkLessThanMin(int selectedNumber) {
-        return GAME_SETTING.getMinBallNumber() > selectedNumber;
+        return BALL_MIN_NUMBER.getBallSetting() > selectedNumber;
     }
 }

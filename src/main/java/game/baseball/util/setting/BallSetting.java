@@ -1,21 +1,19 @@
 package game.baseball.util.setting;
 
-public class BallSetting {
+public enum BallSetting {
 
-    private final int ballSize = 3;
-    private final int minBallNumber = 1;
-    private final int maxBallNumber = 9;
+    BALL_LEAST_SIZE(3),
+    BALL_MIN_NUMBER(1),
+    BALL_MAX_NUMBER(9);
 
-    public int getBallSize() {
-        return ballSize;
+    private final int ballSetting;
+
+    BallSetting(int ballSetting) {
+        this.ballSetting = ballSetting;
     }
 
-    public int getMinBallNumber() {
-        return minBallNumber;
-    }
-
-    public int getMaxBallNumber() {
-        return maxBallNumber;
+    public int getBallSetting() {
+        return ballSetting;
     }
 
 }

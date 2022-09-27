@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.List;
 
 import static game.baseball.message.ExceptionMessage.INCORRECT_BALL_SIZE;
-import static game.baseball.util.setting.GameSetting.GAME_SETTING;
+import static game.baseball.util.setting.BallSetting.BALL_LEAST_SIZE;
 
 public class Balls {
 
@@ -16,7 +16,7 @@ public class Balls {
     }
 
     private void checkBallSizeOrThrow(List<Integer> balls) {
-        if (balls.size() != GAME_SETTING.getBallSize()) {
+        if (balls.size() != BALL_LEAST_SIZE.getBallSetting()) {
             throw new IllegalArgumentException(INCORRECT_BALL_SIZE.getErrorMessage());
         }
     }
