@@ -28,7 +28,7 @@ public class BaseballGame {
             UserNumber userNumber = new UserNumber(inputView.readNumber());
 
             referee.judge(userNumber.getUserNumber(), new ArrayList<>(randomNumber.getRandomNumber()));
-            outputView.printMessage(resultMessageGenerator.generateJudgmentMessage());
+            outputView.printMessage(resultMessageGenerator.createNewResultMessage());
 
             randomNumber = checkGameOver(randomNumber);
         }

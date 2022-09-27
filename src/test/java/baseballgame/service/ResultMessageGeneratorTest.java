@@ -11,8 +11,6 @@ import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class ResultMessageGeneratorTest {
     private final RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
     private final ResultMessageGenerator resultMessageGenerator = new ResultMessageGenerator();
@@ -37,7 +35,7 @@ class ResultMessageGeneratorTest {
 
         referee.judge(userNumber, new ArrayList<>(randomNumber.getRandomNumber()));
 
-        outputView.printMessage(resultMessageGenerator.generateJudgmentMessage());
+        outputView.printMessage(resultMessageGenerator.createNewResultMessage());
 
         if (GameStatus.isGameOver()) {
             outputView.printGameOverMessage(GameStatus.STRIKE.getState());
