@@ -4,10 +4,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 import static game.baseball.message.ExceptionMessage.INPUT_FORMAT_ERROR;
 import static game.baseball.util.setting.BallSetting.BALL_LEAST_SIZE;
+import static java.util.stream.Collectors.toList;
 
 public class InputHandler {
 
@@ -17,38 +17,33 @@ public class InputHandler {
     }
 
     public static String readLine() {
-        String input = "";
-        input = inputView.read();
-
-        return input;
+        return Optional
+                .ofNullable(inputView.read())
+                .orElseThrow(() ->
+                        new NullPointerException(INPUT_FORMAT_ERROR.getErrorMessage()));
     }
 
     public static String[] splitEach(String inputBall) {
-        String[] balls = inputBall.split("");
-        if (!checkSplitFormWithMaxBallSizeAndOnlyDigit(balls)) {
+        if (inputBall.length() == 0) {
+            throw new IllegalArgumentException(INPUT_FORMAT_ERROR.getErrorMessage());
+        }
+        return inputBall.split("");
+    }
+
+    public static List<Integer> convertToIntegerList(String[] inputBalls) {
+        List<Integer> balls = Arrays
+                .stream(inputBalls)
+                .filter(InputHandler::checkOneDigit)
+                .map(Integer::parseInt)
+                .collect(toList());
+        if (balls.size() != BALL_LEAST_SIZE.getBallSetting()) {
             throw new IllegalArgumentException(INPUT_FORMAT_ERROR.getErrorMessage());
         }
         return balls;
     }
 
-    private static boolean checkSplitFormWithMaxBallSizeAndOnlyDigit(String[] balls) {
-        return Arrays.stream(balls)
-                .filter(InputHandler::checkOneDigit)
-                .count() ==
-                BALL_LEAST_SIZE.getBallSetting();
+    private static boolean checkOneDigit(String ball) {
+        return Pattern.compile("^[1-9]$").matcher(ball).matches();
     }
 
-    public static List<Integer> convertToIntegerList(String[] ballNumbers) {
-        return Optional.of(Arrays.stream(ballNumbers)
-                        .map(Integer::parseInt)
-                        .collect(Collectors.toList()))
-                .orElseThrow(() -> new IllegalArgumentException(INPUT_FORMAT_ERROR.getErrorMessage()));
-    }
-
-    public static boolean checkOneDigit(String inputBall) {
-        return Pattern
-                .compile("^[1-9]+$")
-                .matcher(inputBall)
-                .find();
-    }
 }

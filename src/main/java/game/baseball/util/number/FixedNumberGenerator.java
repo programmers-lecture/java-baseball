@@ -12,15 +12,15 @@ public class FixedNumberGenerator implements NumberGenerator {
 
     @Override
     public List<Integer> generate() {
-        return Optional
-                .ofNullable(getFixedNumbers())
-                .orElseThrow(
-                        () -> new NumberFormatException(INPUT_FORMAT_ERROR.getErrorMessage()));
+        return getFixedNumbers();
     }
 
     private List<Integer> getFixedNumbers() {
         printMessage(INPUT_PLAYER_BALLS.getMessage());
-        return convertToIntegerList(splitEach(readLine()));
+        return Optional.of(
+                convertToIntegerList(splitEach(readLine())))
+                .orElseThrow(
+                        () -> new NumberFormatException(INPUT_FORMAT_ERROR.getErrorMessage()));
     }
 
 }
