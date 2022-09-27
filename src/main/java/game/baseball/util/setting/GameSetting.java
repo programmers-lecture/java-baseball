@@ -6,18 +6,18 @@ public enum GameSetting {
 
     GAME_SETTING(
             3,
-            new BallSetting(),
-            new PlayerSetting()
+            new BallSetting()
+//            new PlayerSetting()
     );
 
     private final int maxGameRound;
     private final BallSetting ballSetting;
-    private final PlayerSetting playerSetting;
+//    private final PlayerSetting playerSetting;
 
-    GameSetting(int maxGameRound, BallSetting ballSetting, PlayerSetting playerSetting) {
+    GameSetting(int maxGameRound, BallSetting ballSetting) {
         this.maxGameRound = maxGameRound;
         this.ballSetting = ballSetting;
-        this.playerSetting = playerSetting;
+//        this.playerSetting = playerSetting;
     }
 
     public int getBallSize() {
@@ -32,13 +32,13 @@ public enum GameSetting {
         return ballSetting.getMinBallNumber();
     }
 
-    public NumberGenerator getHumanPlayerNumberGenerator() {
-        return playerSetting.getHumanNumberGenerator();
-    }
-
-    public NumberGenerator getComputerPlayerNumberGenerator() {
-        return playerSetting.getComputerNumberGenerator();
-    }
+//    public NumberGenerator getHumanPlayerNumberGenerator() {
+//        return playerSetting.getHumanNumberGenerator();
+//    }
+//
+//    public NumberGenerator getComputerPlayerNumberGenerator() {
+//        return playerSetting.getComputerNumberGenerator();
+//    }
 
     public int getMaxGameRound() {
         return maxGameRound;

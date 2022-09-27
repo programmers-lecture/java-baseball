@@ -3,7 +3,7 @@ package game.baseball.player;
 import game.baseball.ball.Balls;
 import game.baseball.util.number.NumberGenerator;
 
-import static game.baseball.util.setting.GameSetting.GAME_SETTING;
+import static game.baseball.util.setting.PlayerSetting.HUMAN_NUMBER_GENERATOR;
 
 public class HumanPlayer implements Player {
 
@@ -11,7 +11,7 @@ public class HumanPlayer implements Player {
     private final NumberGenerator numberGenerator;
 
     public HumanPlayer() {
-        this.numberGenerator = GAME_SETTING.getHumanPlayerNumberGenerator();
+        this.numberGenerator = HUMAN_NUMBER_GENERATOR.createNumberGenerator();
     }
 
     @Override

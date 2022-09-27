@@ -25,8 +25,8 @@ public class RandomNumberGenerator implements NumberGenerator {
         while (checkSizeUntilMaxBallSize(randomNumbers)) {
             randomNumbers.add(
                     Optional.ofNullable(getRandomNumberWithCondition(random, randomNumbers))
-                            .orElseThrow(
-                                    () -> new NumberFormatException(
+                            .orElseThrow(() ->
+                                    new NumberFormatException(
                                             RANDOM_NUMBER_GENERATOR_ERROR.getErrorMessage())));
         }
         return randomNumbers;

@@ -4,16 +4,21 @@ import game.baseball.util.number.FixedNumberGenerator;
 import game.baseball.util.number.NumberGenerator;
 import game.baseball.util.number.RandomNumberGenerator;
 
-public class PlayerSetting {
+import java.util.function.Supplier;
 
-    private final NumberGenerator computerNumberGenerator = new RandomNumberGenerator();
-    private final NumberGenerator humanNumberGenerator = new FixedNumberGenerator();
+public enum PlayerSetting {
 
-    public NumberGenerator getComputerNumberGenerator() {
-        return computerNumberGenerator;
+    COMPUTER_NUMBER_GENERATOR(RandomNumberGenerator::new),
+    HUMAN_NUMBER_GENERATOR(FixedNumberGenerator::new);
+
+    private final Supplier<NumberGenerator> numberGenerator;
+
+    PlayerSetting(Supplier<NumberGenerator> numberGenerator) {
+        this.numberGenerator = numberGenerator;
     }
 
-    public NumberGenerator getHumanNumberGenerator() {
-        return humanNumberGenerator;
+    public NumberGenerator createNumberGenerator() {
+        return numberGenerator.get();
     }
+
 }
