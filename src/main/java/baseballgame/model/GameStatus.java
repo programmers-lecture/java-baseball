@@ -29,8 +29,8 @@ public enum GameStatus {
         return STRIKE.state == NOTHING && BALL.state == NOTHING;
     }
 
-    public static boolean isZero(GameStatus gameStatus) {
-        return gameStatus.state == NOTHING;
+    public static boolean isNonZero(GameStatus gameStatus) {
+        return gameStatus.state != NOTHING;
     }
 
     public static void initialize() {

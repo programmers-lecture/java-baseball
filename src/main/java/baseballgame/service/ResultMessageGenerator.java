@@ -19,13 +19,13 @@ public class ResultMessageGenerator {
     private String generateBallStrikeMessage() {
         StringBuilder ballStrikeMessage = new StringBuilder();
 
-        if (GameStatus.isZero(GameStatus.BALL)) {
+        if (GameStatus.isNonZero(GameStatus.BALL)) {
             ballStrikeMessage.append(GameStatus.BALL.getState());
             ballStrikeMessage.append(BALL_LITERAL);
             ballStrikeMessage.append(BLANK_LITERAL);
         }
 
-        if (GameStatus.isZero(GameStatus.STRIKE)) {
+        if (GameStatus.isNonZero(GameStatus.STRIKE)) {
             ballStrikeMessage.append(GameStatus.STRIKE.getState());
             ballStrikeMessage.append(STRIKE_LITERAL);
         }
