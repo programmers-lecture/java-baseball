@@ -6,22 +6,31 @@ import java.util.ArrayList;
 
 public class Referee {
     public void judge(ArrayList<Integer> userNumber, ArrayList<Integer> randomNumber) {
-        checkBallAndStrike(userNumber, randomNumber);
+        recordBallsAndStrikes(userNumber, randomNumber);
     }
 
-    private void checkBallAndStrike(ArrayList<Integer> userNumber, ArrayList<Integer> randomNumber) {
+    // TODO: 변수 이름 변경
+    private void recordBallsAndStrikes(ArrayList<Integer> userNumber, ArrayList<Integer> randomNumber) {
         for (int i = 0; i < userNumber.size(); i++) {
-            if (userNumber.get(i).equals(randomNumber.get(i))) {
-                GameStatus.STRIKE.count();
-            }
+            recordStrikes(userNumber, randomNumber, i);
+        }
+    }
 
-            for (int j = 0; j < userNumber.size(); j++) {
-                if (j == i) continue;
+    private void recordStrikes(ArrayList<Integer> userNumber, ArrayList<Integer> randomNumber, int i) {
+        if (userNumber.get(i).equals(randomNumber.get(i))) {
+            GameStatus.STRIKE.count();
+        }
 
-                if (userNumber.get(j).equals(randomNumber.get(i))) {
-                    GameStatus.BALL.count();
-                }
-            }
+        for (int j = 0; j < userNumber.size(); j++) {
+            recordBalls(userNumber, randomNumber, i, j);
+        }
+    }
+
+    private void recordBalls(ArrayList<Integer> userNumber, ArrayList<Integer> randomNumber, int i, int j) {
+        if (j == i) return;
+
+        if (userNumber.get(j).equals(randomNumber.get(i))) {
+            GameStatus.BALL.count();
         }
     }
 }
