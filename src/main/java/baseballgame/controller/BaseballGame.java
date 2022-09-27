@@ -23,27 +23,39 @@ public class BaseballGame {
     public void run() {
         RandomNumber randomNumber = randomNumberGenerator.generateRandomNumber();
 
-        while (true) {
+        while (!GameStatus.isGameOver()) {
             GameStatus.initialize();
             UserNumber userNumber = new UserNumber(inputView.readNumber());
-            System.out.println("randomNumber = " + randomNumber.getRandomNumber());
 
             referee.judge(userNumber.getUserNumber(), new ArrayList<>(randomNumber.getRandomNumber()));
             outputView.printMessage(resultMessageGenerator.generateJudgmentMessage());
 
-            if (GameStatus.isGameOver()) {
-                outputView.printGameOverMessage(GameStatus.STRIKE.getState());
-                outputView.printConfirmMessage();
-
-                ConfirmType confirmType = inputView.readConfirmType();
-                if (confirmType == ConfirmType.CONFIRM) {
-                    randomNumber = randomNumberGenerator.generateRandomNumber();
-                    inputView.clearInput();
-                } else {
-                    outputView.printGameExitMessage();
-                    break;
-                }
-            }
+            randomNumber = checkGameOver(randomNumber);
         }
+    }
+
+    private RandomNumber checkGameOver(RandomNumber randomNumber) {
+        if (GameStatus.isGameOver()) {
+            outputView.printGameOverMessage(GameStatus.STRIKE.getState());
+            outputView.printConfirmMessage();
+            randomNumber = confirmRestart(randomNumber);
+        }
+        return randomNumber;
+    }
+
+    private RandomNumber confirmRestart(RandomNumber randomNumber) {
+        ConfirmType confirmType = inputView.readConfirmType();
+
+        if (confirmType == ConfirmType.CONFIRM) {
+            inputView.clearInput();
+            return randomNumberGenerator.generateRandomNumber();
+        }
+        return terminateGame(randomNumber);
+    }
+
+    private RandomNumber terminateGame(RandomNumber randomNumber) {
+        outputView.printGameExitMessage();
+        System.exit(0);
+        return randomNumber;
     }
 }
