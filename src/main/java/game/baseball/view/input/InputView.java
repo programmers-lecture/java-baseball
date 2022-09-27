@@ -14,6 +14,9 @@ public class InputView {
         String input = "";
         try {
             input = br.readLine();
+            if (input.length() == 0) {
+                throw new IOException();
+            }
         } catch (IOException e) {
             throw new IllegalArgumentException(INPUT_FORMAT_ERROR.getErrorMessage());
         }
