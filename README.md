@@ -47,26 +47,41 @@
 - [x] 게임 상태 정보 초기화 
 - [x] 게임 중에는 컴퓨터 숫자를 유지하고, 새 게임이 시작될 때 새로 생성
 
-## 클래스 다이어그램(추가 예정)
+## 클래스 다이어그램(설명)
 ### Model
+- ConfirmType: 게임이 종료된 후, 게임 추가 진행 여부를 상수로 저장
+- GameStatus: Ball과 Strike의 개수를 저장하는 상수
+- RandomNumber: 난수 Set 을 포장
+- UserNumber: 유저가 입력한 숫자 List 를 포장
+
 ### View
+- InputView: 입력 및 입력값에 대한 유효성 검증 역할
+- OutputView: 출력 역할
+
 ### Controller
+- BaseballGame: 전체적인 게임 진행 역할 
+
+### Service
+- Referee: RandomNumber와 UserNumber를 비교하여 Ball과 Strike 개수를 판단하고, 이를 모델에 저장
+- RandomNumberGenerator: 3자리 난수 Set을 생성
+- ResultMessageGenerator: GameStatus를 이용하여 Ball과 Strike 개수를 바탕으로 출력할 문자열 생성
 
 ## 피드백
 
 ## ♻ 리팩터링
-- [ ] invalid input 을 받으면 메시지를 출력하고 계속 게임 진행
-- [ ] 메서드 분리. depth 1 유지 
-- [ ] else 예약어 제거 
+- [x] 메서드 분리. depth 1 유지
+- [x] else 예약어 제거
+  - [ ] 비정상적인 메서드 분리가 많음. 자연스러운 흐름으로 고쳐볼 것.
+- [x] 중복을 제거
 - [ ] 람다와 스트림을 사용
-- [ ] 중복을 제거 
+- [ ] invalid input 을 받으면 메시지를 출력하고 계속 게임 진행
 - [ ] Exception Enum으로 예외와 예외 메시지 리터럴을 관리
 - [ ] MVC 패턴 5대 규칙을 준수
 - [ ] 객체지향 개념을 적용
 
 ## 객체 지향 생활 체조
-- [ ] 규칙 1: 한 메서드에 오직 한 단계의 들여쓰기만 한다.
-- [ ] 규칙 2: else 예약어를 쓰지 않는다.
+- [x] 규칙 1: 한 메서드에 오직 한 단계의 들여쓰기만 한다.
+- [x] 규칙 2: else 예약어를 쓰지 않는다.
 - [ ] 규칙 3: 모든 원시값과 문자열을 포장한다.
 - [ ] 규칙 4: 한 줄에 점을 하나만 찍는다.
 - [ ] 규칙 5: 줄여쓰지 않는다(축약 금지).

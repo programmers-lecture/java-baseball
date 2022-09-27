@@ -9,7 +9,6 @@ public class Referee {
         recordBallsAndStrikes(userNumber, randomNumber);
     }
 
-    // TODO: 변수 이름 변경
     private void recordBallsAndStrikes(ArrayList<Integer> userNumber, ArrayList<Integer> randomNumber) {
         for (int i = 0; i < userNumber.size(); i++) {
             recordStrikes(userNumber, randomNumber, i);
