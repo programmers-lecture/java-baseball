@@ -4,7 +4,7 @@ import game.baseball.hint.Hints;
 import game.baseball.player.ComputerPlayer;
 import game.baseball.player.HumanPlayer;
 
-public class GameHandler {
+public class GameController {
 
     public boolean playGameAndGetEndType(ComputerPlayer computerPlayer,
                                          HumanPlayer humanPlayer,
