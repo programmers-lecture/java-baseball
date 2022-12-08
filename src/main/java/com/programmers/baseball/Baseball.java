@@ -21,5 +21,26 @@ public class Baseball {
 
         boolean duplicated = Arrays.stream(guessNumber).distinct().count() != guessNumber.length;
         if (duplicated) throw new IllegalArgumentException("각 자리의 값을 중복되지 않게 입력해주세요.");
+
+        int strike = 0;
+        int ball = 0;
+
+        for (int i = 0; i < NUMBER_SIZE; i++) {
+            for (int j = 0; j < NUMBER_SIZE; j++) {
+                if (i == j) {
+                    if (computerNumber[i] == guessNumber[j]) {
+                        strike++;
+                    }
+                } else {
+                    if (computerNumber[i] == guessNumber[j]) {
+                        ball++;
+                    }
+                }
+            }
+        }
+
+        if (ball != 0) System.out.print(ball + "볼 ");
+        if (strike != 0) System.out.println(strike + "스트라이크 ");
+        if (ball == 0 && strike == 0) System.out.println("낫싱");
     }
 }
