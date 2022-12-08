@@ -1,5 +1,6 @@
 package com.programmers.baseball;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.stream.IntStream;
@@ -17,5 +18,8 @@ public class Baseball {
 
         int[] guessNumber = Stream.of(String.valueOf(scanner.nextInt()).split("")).mapToInt(Integer::parseInt).toArray();
         if (guessNumber.length != NUMBER_SIZE) throw new IllegalArgumentException(NUMBER_SIZE + "자리의 수를 입력하세요.");
+
+        boolean duplicated = Arrays.stream(guessNumber).distinct().count() != guessNumber.length;
+        if (duplicated) throw new IllegalArgumentException("각 자리의 값을 중복되지 않게 입력해주세요.");
     }
 }
