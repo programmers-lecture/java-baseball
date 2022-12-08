@@ -16,5 +16,6 @@ public class Baseball {
         System.out.print("숫자를 입력해주세요 : ");
 
         int[] guessNumber = Stream.of(String.valueOf(scanner.nextInt()).split("")).mapToInt(Integer::parseInt).toArray();
+        if (guessNumber.length != NUMBER_SIZE) throw new IllegalArgumentException(NUMBER_SIZE + "자리의 수를 입력하세요.");
     }
 }
