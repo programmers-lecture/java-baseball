@@ -1,6 +1,8 @@
-package game;
+package game.answer;
 
+import game.Element;
 import lombok.Getter;
+import numberBaseball.Setting;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +10,7 @@ import java.util.List;
 @Getter
 public class Answer<T> {
     private final Integer maxNumberOfElements;
-    private List<Element<T>> elements;
+    private final List<Element<T>> elements;
 
     public Answer(Integer maxNumberOfElements){
         this.maxNumberOfElements = maxNumberOfElements;
@@ -16,7 +18,8 @@ public class Answer<T> {
     }
 
     public void addElement(Element<T> element){
-        if(3<elements.size()) throw new IllegalArgumentException();
+        if(Setting.MAX_NUMBER_OF_ELEMENTS<elements.size())
+            throw new IllegalArgumentException();
         elements.add(element);
     }
 }
