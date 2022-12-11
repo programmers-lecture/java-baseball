@@ -1,4 +1,4 @@
-package game;
+package baseball;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

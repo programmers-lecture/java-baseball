@@ -1,7 +1,7 @@
-package game;
+package baseball;
 
-import game.answer.Answer;
-import numberBaseball.Setting;
+import baseball.answer.Answer;
+import game.Setting;
 import random.RandomGenerator;
 
 import java.util.List;

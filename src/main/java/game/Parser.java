@@ -1,6 +1,6 @@
-package numberBaseball;
+package game;
 
-import game.Element;
+import baseball.Element;
 
 import java.util.List;
 

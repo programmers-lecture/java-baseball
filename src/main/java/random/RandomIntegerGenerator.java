@@ -1,6 +1,6 @@
 package random;
 
-import game.Element;
+import baseball.Element;
 
 public class RandomIntegerGenerator implements RandomGenerator<Integer>{
     @Override

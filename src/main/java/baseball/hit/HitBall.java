@@ -1,6 +1,6 @@
-package game.hit;
+package baseball.hit;
 
-import game.Result;
+import baseball.Result;
 
 public class HitBall implements Hit{
     @Override

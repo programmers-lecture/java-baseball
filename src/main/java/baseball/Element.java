@@ -1,9 +1,9 @@
-package game;
+package baseball;
 
-import game.hit.Hit;
-import game.hit.HitBall;
-import game.hit.HitNone;
-import game.hit.HitStrike;
+import baseball.hit.Hit;
+import baseball.hit.HitBall;
+import baseball.hit.HitNone;
+import baseball.hit.HitStrike;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

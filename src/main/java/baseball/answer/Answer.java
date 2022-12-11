@@ -1,8 +1,8 @@
-package game.answer;
+package baseball.answer;
 
-import game.Element;
+import baseball.Element;
 import lombok.Getter;
-import numberBaseball.Setting;
+import game.Setting;
 
 import java.util.ArrayList;
 import java.util.List;
