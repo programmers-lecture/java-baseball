@@ -3,6 +3,7 @@ import model.AnswerNumber;
 import model.RandomNumberGenerator;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
 
@@ -15,13 +16,11 @@ public class Main {
         System.out.println(Arrays.toString(randomNumber));
         System.out.println(Arrays.toString(fixedNumber));
 
-        System.out.println(BaseballState.STRIKE.call(randomNumber, fixedNumber));
-        System.out.println(BaseballState.BALL.call(randomNumber, fixedNumber));
+        System.out.println(JudgeCount.BALL.judge(fixedNumber,randomNumber));
+        System.out.println(JudgeCount.STRIKE.judge(fixedNumber,randomNumber));
+        System.out.println(JudgeCount.CORRECT.judge(fixedNumber,randomNumber));
+        System.out.println(JudgeCount.OUT.judge(fixedNumber,randomNumber));
 
-//        while(true) {
-//            String[] answer = sc.nextLine().split("");
-//
-//        }
 
     }
 
