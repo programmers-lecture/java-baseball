@@ -24,6 +24,66 @@
 * [X] 잘못된 값을 입력할 경우 IllegalArgumentException 발생
 * [ ] 테스트코드 작성
 
+## 그래프
+```mermaid
+classDiagram
+    Game <|--Input
+    Game <|--Computer
+    Game <|--Judgement
+    Game <|--RandomNumberGenerator
+    RandomNumberGenerator <|-- NumberGenerator
+      class RandomNumberGenerator{
+        +generate()
+      }
+      class NumberGenerator{
+        generate()
+      }
+      class Game{
+        Computer computer
+        int gameStatus
+        Input input
+        Judgement judgement
+        play()
+        init()
+        retry()
+      }
+      class Computer{
+        RandomNumberGenerator randomNumberGenerator
+        FixedNumberGenerator fixedNumberGenerator
+        List<Integer> answer
+        createAnswerWithRandom()
+        createAnswerWithFixed()
+        getAnswer()
+      }
+      class Judgement{
+        getTotalCount(computer, player)
+        getStrikeCount(computer, player)
+        getBallCount(computer, player)
+      }
+      class Input{
+        private Scanner scanner
+        private Set<Integer> numberSet
+        getRetry()
+        getNumber()
+        isExist()
+      }
+```
+```mermaid
+stateDiagram
+    [Start] --> Main
+    Main --> Game
+    Game --> Input
+    Input --> Game
+    Game --> Computer
+    Computer --> Game
+    Game --> Judgement
+    Judgement --> Game
+    Config --> Game
+    Message --> Game
+    Game --> [End]
+
+```
+
 ## 프로그램 실행 결과
 ```
 숫자를 입력해주세요 : 123
