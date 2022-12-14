@@ -2,6 +2,7 @@ package application.constant;
 
 public class Message {
     private static final String INPUT_NUMBER_TO_PLAY = "숫자를 입력해주세요. : ";
+    private static final String NOTHING = "낫싱 또는 아웃";
     private static final String BALL = "볼";
     private static final String STRIKE = "스트라이크";
     private static final String THREE_STRIKE = "3개의 숫자를 모두 맞히셨습니다! 게임 종료";
@@ -12,7 +13,13 @@ public class Message {
     }
 
     public static String getStatus(int ball, int strike) {
-        return getBall(ball) + getStrike(strike);
+        if(ball == 0 && strike == 0) {
+            return getNothing();
+        } else if(strike == 3) {
+            return getThreeStrike();
+        } else {
+            return getBall(ball) + " " + getStrike(strike);
+        }
     }
     public static String getThreeStrike() {
         return THREE_STRIKE;
@@ -20,6 +27,9 @@ public class Message {
 
     public static String getRetry() {
         return RETRY;
+    }
+    private static String getNothing() {
+        return NOTHING;
     }
 
     private static String getBall(int ball) {
