@@ -1,8 +1,8 @@
-import application.Game;
+import application.baseball.Game;
 
 public class Main {
     public static void main(String[] args) {
-        Game baseball = new Game();
-        baseball.play();
+        Game game = new Game();
+        game.play();
     }
 }
