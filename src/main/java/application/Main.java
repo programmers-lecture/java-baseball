@@ -1,3 +1,5 @@
+package application;
+
 import application.baseball.Game;
 
 public class Main {
