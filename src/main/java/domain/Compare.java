@@ -7,6 +7,7 @@ public class Compare {
     private int strikeCount;
     private int ballCount;
 
+    // 스트라이크 판단
     public int countStrike(List<Integer> userNum, List<Integer> randomValue) {
 
         strikeCount = 0;
@@ -17,6 +18,7 @@ public class Compare {
         return strikeCount;
     }
 
+    // 볼 판단
     public int countBall(List<Integer> userNum, List<Integer> randomValue) {
 
         ballCount = 0;
@@ -26,7 +28,6 @@ public class Compare {
                 if((i!=j) & (userNum.get(j) == randomValue.get(i))) ballCount++;
             }
         }
-
         return ballCount;
     }
 }

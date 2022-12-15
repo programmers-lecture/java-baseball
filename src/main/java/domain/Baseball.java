@@ -10,9 +10,8 @@ public class Baseball {
         RandomValue randomValue = new RandomValue();
         Compare compare = new Compare();
 
+        // 정답 생성
         List<Integer> answer = randomValue.answerNum();
-        for(int i=0; i<answer.size(); i++) System.out.print(answer.get(i));
-        System.out.println();
 
         while(true) {
             List<Integer> userNum = play.inputNum();
@@ -21,10 +20,13 @@ public class Baseball {
 
             play.referee(strike, ball);
 
+            // 정답을 맞췄을시
             if(strike == 3) {
                 int choice = play.restartGame();
 
+                // 게임을 계속 진행할 시
                 if(choice == 1) answer = randomValue.answerNum();
+                // 게임을 종료할 시
                 else break;
             }
         }

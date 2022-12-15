@@ -10,6 +10,7 @@ public class RandomValue {
     Random random = new Random();
     List<Integer> ranNum = new ArrayList<>(3);
 
+    // 중복된 수가 들어가지 않게 한다.
     public List<Integer> answerNum() {
 
         ranNum.clear();
