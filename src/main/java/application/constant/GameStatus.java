@@ -1,4 +1,4 @@
-package application.baseball;
+package application.constant;
 
 public enum GameStatus {
     PREPARING(0),

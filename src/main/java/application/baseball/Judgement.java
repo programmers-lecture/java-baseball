@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Judgement {
-    public int getTotalCount(List<Integer> computer, List<Integer> inputNumber) {
+    private int getTotalCount(List<Integer> computer, List<Integer> inputNumber) {
         return inputNumber.stream()
                 .filter(number -> computer.contains(number))
                 .collect(Collectors.toList())

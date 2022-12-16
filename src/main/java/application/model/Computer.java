@@ -1,4 +1,4 @@
-package application.baseball;
+package application.model;
 
 import application.generator.FixedNumberGenerator;
 import application.generator.RandomNumberGenerator;

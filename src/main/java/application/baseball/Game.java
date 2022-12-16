@@ -1,6 +1,9 @@
 package application.baseball;
 
+import application.constant.GameStatus;
 import application.constant.Message;
+import application.model.Computer;
+import application.view.Input;
 import application.view.Output;
 
 import java.util.List;

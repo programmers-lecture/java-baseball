@@ -1,4 +1,4 @@
-package application.baseball;
+package application.view;
 
 import application.constant.Config;
 
