@@ -22,66 +22,36 @@
 * [X] 판단4: m이 0이면 낫싱
 * [X] 판단5: n이 3이면 재시작 혹은 종료
 * [X] 잘못된 값을 입력할 경우 IllegalArgumentException 발생
+* [X] Input, Player 객체 간 책임 분리
 * [ ] 테스트코드 작성
 
 ## 그래프
 ```mermaid
-classDiagram
-    Game <|--Input
-    Game <|--Computer
-    Game <|--Judgement
-    Game <|--RandomNumberGenerator
-    RandomNumberGenerator <|-- NumberGenerator
-      class RandomNumberGenerator{
-        +generate()
-      }
-      class NumberGenerator{
-        generate()
-      }
-      class Game{
-        Computer computer
-        int gameStatus
-        Input input
-        Judgement judgement
-        play()
-        init()
-        retry()
-      }
-      class Computer{
-        RandomNumberGenerator randomNumberGenerator
-        FixedNumberGenerator fixedNumberGenerator
-        List<Integer> answer
-        createAnswerWithRandom()
-        createAnswerWithFixed()
-        getAnswer()
-      }
-      class Judgement{
-        getTotalCount(computer, player)
-        getStrikeCount(computer, player)
-        getBallCount(computer, player)
-      }
-      class Input{
-        private Scanner scanner
-        private Set<Integer> numberSet
-        getRetry()
-        getNumber()
-        isExist()
-      }
-```
-```mermaid
 stateDiagram
-    [Start] --> Main
-    Main --> Game
+    [Start] --> Game
+    
     Game --> Input
     Input --> Game
+    
+    Game --> Player
+    Player --> Game
+    
     Game --> Computer
     Computer --> Game
+    
+    RandomNumberGenerator --> Computer
+    Computer --> RandomNumberGenerator
+    
+    RandomNumberGenerator --> NumberGenerator
+    
     Game --> Judgement
     Judgement --> Game
-    Config --> Game
+    
+    Player --> Config
+    RandomNumberGenerator --> Config
+    
     Message --> Game
     Game --> [End]
-
 ```
 
 ## 프로그램 실행 결과
