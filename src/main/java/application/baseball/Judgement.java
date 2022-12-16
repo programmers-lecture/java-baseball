@@ -1,19 +1,18 @@
 package application.baseball;
 
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Objects;
 
 public class Judgement {
     private int getTotalCount(List<Integer> computer, List<Integer> inputNumber) {
-        return inputNumber.stream()
-                .filter(number -> computer.contains(number))
-                .collect(Collectors.toList())
-                .size();
+        return (int) inputNumber.stream()
+                .filter(computer::contains)
+                .count();
     }
     public int getStrikeCount(List<Integer> computer, List<Integer> inputNumber) {
         int count = 0;
         for(int i = 0; i < inputNumber.size(); i++) {
-            if(computer.get(i) == inputNumber.get(i)) {
+            if(Objects.equals(computer.get(i), inputNumber.get(i))) {
                 count += 1;
             }
         }
