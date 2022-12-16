@@ -5,13 +5,12 @@ import application.constant.Message;
 import java.util.List;
 
 public class Game {
-    private Computer computer;
-    private Integer gameStatus; // 0: 게임시작전 1: 게임중 2: 게임종료
-    private Input input;
-    private Judgement judgement;
+    private final Computer computer;
+    private Integer gameStatus;
+    private final Input input;
+    private final Judgement judgement;
     public Game() {
         this.computer = new Computer();
-        this.gameStatus = 0;
         this.input = new Input();
         this.judgement = new Judgement();
     }
@@ -19,15 +18,16 @@ public class Game {
     private void init() {
         // 컴퓨터의 3자리 수인 1-9사이 각각 다른 임의의 수 3개를 생성한다.
         computer.createAnswerWithRandom();
-        this.gameStatus = 0;
+        this.gameStatus = GameStatus.PREPARING.getCode();
     }
 
     public void play() {
         init();
-        System.out.println("컴퓨터: " + computer.getAnswer().toString());
-        while(gameStatus != 2) {
+        while(gameStatus != GameStatus.END.getCode()) {
+            System.out.println("컴퓨터: " + computer.getAnswer().toString());
+
             List<Integer> player = input.getNumber();
-            System.out.println(player);
+            System.out.println("유저: " + player);
 
             int strike = judgement.getStrikeCount(computer.getAnswer(), player);
             int ball = judgement.getBallCount(computer.getAnswer(), player);
@@ -39,10 +39,9 @@ public class Game {
                 if(retry() == true) {
                     init();
                 } else {
-                    gameStatus = 2;
+                    gameStatus = GameStatus.END.getCode();
                 }
             }
-
 
         }
     }
@@ -53,7 +52,4 @@ public class Game {
         }
         return false;
     }
-
-
-
 }
