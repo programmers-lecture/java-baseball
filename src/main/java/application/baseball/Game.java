@@ -3,19 +3,20 @@ package application.baseball;
 import application.constant.GameStatus;
 import application.constant.Message;
 import application.model.Computer;
+import application.model.Player;
 import application.view.Input;
 import application.view.Output;
 
-import java.util.List;
-
 public class Game {
     private final Computer computer;
+    private final Player player;
     private final Input input;
     private final Judgement judgement;
     private final Output output;
     private Integer gameStatus;
     public Game() {
         this.computer = new Computer();
+        this.player = new Player();
         this.input = new Input();
         this.judgement = new Judgement();
         this.output = new Output();
@@ -33,11 +34,13 @@ public class Game {
             output.printNewLine("컴퓨터: " + computer.getAnswer().toString());
 
             output.printNowLine(Message.getInputNumberToPlay());
-            List<Integer> player = input.getNumber();
-            output.printNewLine("유저: " + player);
+            String[] inputs = input.getNumber();
 
-            int strike = judgement.getStrikeCount(computer.getAnswer(), player);
-            int ball = judgement.getBallCount(computer.getAnswer(), player);
+            player.generateNumbers(inputs);
+            output.printNewLine("유저: " + player.getNumbers().toString());
+
+            int strike = judgement.getStrikeCount(computer.getAnswer(), player.getNumbers());
+            int ball = judgement.getBallCount(computer.getAnswer(), player.getNumbers());
 
             String status = Message.getStatus(ball, strike);
             output.printNewLine(status);

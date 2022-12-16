@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Computer {
-    private RandomNumberGenerator randomNumberGenerator;
-    private FixedNumberGenerator fixedNumberGenerator;
+    private final RandomNumberGenerator randomNumberGenerator;
+    private final FixedNumberGenerator fixedNumberGenerator;
     private List<Integer> answer;
 
     public Computer() {

@@ -20,7 +20,7 @@ public class Message {
         } else if(strike == 3) {
             return getThreeStrike();
         } else {
-            return getBall(ball) + " " + getStrike(strike);
+            return getBall(ball) + getStrike(strike);
         }
     }
     public static String getThreeStrike() {
