@@ -39,8 +39,8 @@ public class Game {
             String status = Message.getStatus(ball, strike);
             output.printNewLine(status);
 
-            if(status == Message.getThreeStrike()) {
-                if(retry() == true) {
+            if(status.equals(Message.getThreeStrike())) {
+                if(retry()) {
                     init();
                 } else {
                     gameStatus = GameStatus.END.getCode();
@@ -52,10 +52,6 @@ public class Game {
 
     private boolean retry() {
         output.printNewLine(Message.getRetry());
-
-        if(input.getRetry() == 1) {
-            return true;
-        }
-        return false;
+        return input.getRetry() == GameStatus.PLAYING.getCode();
     }
 }
