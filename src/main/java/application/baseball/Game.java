@@ -1,18 +1,21 @@
 package application.baseball;
 
 import application.constant.Message;
+import application.view.Output;
 
 import java.util.List;
 
 public class Game {
     private final Computer computer;
-    private Integer gameStatus;
     private final Input input;
     private final Judgement judgement;
+    private final Output output;
+    private Integer gameStatus;
     public Game() {
         this.computer = new Computer();
         this.input = new Input();
         this.judgement = new Judgement();
+        this.output = new Output();
     }
 
     private void init() {
@@ -23,17 +26,18 @@ public class Game {
 
     public void play() {
         init();
-        while(gameStatus != GameStatus.END.getCode()) {
-            System.out.println("컴퓨터: " + computer.getAnswer().toString());
+        while(!gameStatus.equals(GameStatus.END.getCode())) {
+            output.printNewLine("컴퓨터: " + computer.getAnswer().toString());
 
+            output.printNowLine(Message.getInputNumberToPlay());
             List<Integer> player = input.getNumber();
-            System.out.println("유저: " + player);
+            output.printNewLine("유저: " + player);
 
             int strike = judgement.getStrikeCount(computer.getAnswer(), player);
             int ball = judgement.getBallCount(computer.getAnswer(), player);
 
             String status = Message.getStatus(ball, strike);
-            System.out.println(status);
+            output.printNewLine(status);
 
             if(status == Message.getThreeStrike()) {
                 if(retry() == true) {
@@ -47,6 +51,8 @@ public class Game {
     }
 
     private boolean retry() {
+        output.printNewLine(Message.getRetry());
+
         if(input.getRetry() == 1) {
             return true;
         }

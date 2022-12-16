@@ -1,14 +1,13 @@
 package application.baseball;
 
 import application.constant.Config;
-import application.constant.Message;
 
 import java.util.*;
 
 
 public class Input {
-    private Scanner scanner;
-    private Set<Integer> numberSet;
+    private final Scanner scanner;
+    private final Set<Integer> numberSet;
 
     public Input() {
         this.scanner = new Scanner(System.in);
@@ -16,8 +15,6 @@ public class Input {
     }
 
     public int getRetry() {
-        System.out.println(Message.getRetry());
-
         String code = scanner.next();
         if(!code.matches("[1-2]+")) {
             throw new IllegalArgumentException();
@@ -27,7 +24,6 @@ public class Input {
 
     public List<Integer> getNumber() {
         List<Integer> inputNumber = new ArrayList<>();
-        System.out.print(Message.getInputNumberToPlay());
 
         String[] inputs = scanner.next().split("");
         if(inputs.length > Config.BASEBALL_GAME_SIZE) {
