@@ -49,7 +49,7 @@
 
 
 ## 요구사항 checklist
-- [ ] 세 자리의 랜덤 수 생성 (중복된 숫자 x)
+- [x] 세 자리의 랜덤 수 생성 (중복된 숫자 x)
 - [ ] 세 자리 수 입력 받기
   - [ ] 잘못된 값 입력 시 IllegalArgumentException 발생시킨 후 애플리케이션 종료
 - [ ] 스트라이크, 볼, 아웃 판별
@@ -60,13 +60,20 @@
 
 ## Class Diagram
 - BaseballGame
+  - Computer
+  - Player
+  - Judgement
   - 게임 진행
-  - Computer, Judgement
 - Computer
-  - 컴퓨터가 생각한 숫자
-  - 랜덤 세자리 수 생성
   - Numbers
-- Numbers
-  - 세 개의 랜덤 숫자들
+  - 3자리 수 생성하기
+- Player
+  - 숫자 입력하기
 - Judgement
-  - STRIKE, BALL, OUT, THREE_STRIKE(정답)
+  - strike, ball, out 판별하기
+- Numbers
+  - 중복 없는 세 자리 수
+- NumberGenerator
+  - 숫자 생성
+- RandomNumberGenerator
+  - 0-9 랜덤 숫자 생성
