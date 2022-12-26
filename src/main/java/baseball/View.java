@@ -24,7 +24,11 @@ public class View {
 
     public String getNumbers() {
         System.out.printf(ENTER_NUMBERS);
-        return input();
+        String numbers = input();
+        if (!numbers.matches("[0-9]+") || numbers.length() != NUMBER_SIZE){
+            throw new IllegalArgumentException("잘못된 입력입니다.");
+        }
+        return numbers;
     }
 
     public void printBall(int ball) {
