@@ -2,11 +2,12 @@ package baseball;
 
 public class Main {
     private static BaseballGame baseballGame;
+
     public static void main(String[] args) {
-        String newGame = "1";
-        while (newGame.equals("1")) {
+        String gameStatus = Constant.CONTINUE;
+        while (gameStatus.equals(Constant.CONTINUE)) {
             baseballGame = new BaseballGame();
-            newGame = baseballGame.play();
+            gameStatus = baseballGame.play();
         }
     }
 }

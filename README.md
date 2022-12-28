@@ -58,21 +58,18 @@
   - [x] 다시 게임 시작 or 완전히 종료
 
 ## Class Diagram
+- Main
+  - 게임 시작
+  - 한 게임이 끝난 후 1을 입력받으면 새로운 게임 시작, 2를 입력받으면 어플리케이션 종료
 - BaseballGame
+  - Computer, Judgement, View
+  - play()
+    - 정답을 맞힐 때까지 게임 진행
   - Computer
-  - Player
+    - 3자리 랜덤 수 생성 -> RandomNumberGenerator 이용
   - Judgement
-  - 게임 진행
-- Computer
-  - Numbers
-  - 3자리 수 생성하기
-- Player
-  - 숫자 입력하기
-- Judgement
-  - strike, ball, out 판별하기
-- Numbers
-  - 중복 없는 세 자리 수
-- NumberGenerator
-  - 숫자 생성
-- RandomNumberGenerator
-  - 0-9 랜덤 숫자 생성
+    - strike, ball 판정하기
+  - View
+    - 숫자 입력받기
+    - 결과 출력하기
+  
