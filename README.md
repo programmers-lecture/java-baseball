@@ -46,7 +46,7 @@
 ## 다이어그램
 1. Aplication : BaseballGame 클래스의 인스턴스를 이용해 게임을 시작합니다.
 2. BaseballGame : 게임을 실행합니다.
-3. Player : Player 클래스를 상속받은 클래스들은 List 타입의 numbers와 getNumbers(), setNumbers()를 가지고 있게 합니다.
+3. Player : Player 클래스를 상속받은 클래스들은 List 타입의 numbers와 getNumbers(), setNumbers() 구현하도록 합니다.
 4. User : Player 클래스를 상속받아 사용자의 정보를 다룹니다.
 5. Computer : Player 클래스를 상속받아 컴퓨터의 정보를 다룹니다.
 6. GameResult : 게임 결과와 관련된 처리를 합니다.
