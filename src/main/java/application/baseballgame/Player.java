@@ -1,4 +1,4 @@
-package application.baseballGame;
+package application.baseballgame;
 
 import java.util.List;
 
@@ -8,5 +8,6 @@ public abstract class Player {
     public List<Integer> getNumbers() {
         return numbers;
     }
+
     public abstract void setNumbers();
 }

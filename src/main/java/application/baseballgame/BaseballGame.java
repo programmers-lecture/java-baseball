@@ -1,8 +1,6 @@
-package application.baseballGame;
+package application.baseballgame;
 
 public class BaseballGame {
-    static final int NUMBER_COUNT_RULE = 3;
-
     public void run() {
         Player computer = new Computer();
         computer.setNumbers();
