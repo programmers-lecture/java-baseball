@@ -1,4 +1,4 @@
-package application.baseballgame;
+package application.baseballgame.player;
 
 public enum UserChoice {
     AGAIN(1), STOP(2);

@@ -1,14 +1,19 @@
 package application.baseballgame;
 
+import application.baseballgame.gameresult.GameResult;
+import application.baseballgame.player.Computer;
+import application.baseballgame.player.User;
+import application.numbergenerator.RandomNumberGenerator;
+
 public class BaseballGame {
     public void run() {
-        Player computer = new Computer();
-        computer.setNumbers();
-        Player user = new User();
+        Computer computer = new Computer();
+        computer.setNumbers(new RandomNumberGenerator());
+        User user = new User();
         GameResult gameResult = new GameResult();
-        while(!gameResult.isWin()) {
+        while (!gameResult.isWin()) {
             user.setNumbers();
-            gameResult.setResult(computer, user);
+            gameResult.setThrowingResults(computer.getNumbers(), user.getNumbers());
             gameResult.printResult();
         }
     }

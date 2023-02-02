@@ -1,7 +1,7 @@
 package application;
 
 import application.baseballgame.BaseballGame;
-import application.baseballgame.UserChoice;
+import application.baseballgame.player.UserChoice;
 import application.input.Input;
 
 public class Application {
@@ -10,9 +10,11 @@ public class Application {
     public static void main(String[] args) {
         BaseballGame baseballGame = new BaseballGame();
         Input input = new Input();
-        while(!stop) {
+        while (!stop) {
             baseballGame.run();
-            if(UserChoice.isStop(input.userChoice())) stop = true;
+            if (UserChoice.isStop(input.userChoice())) {
+                stop = true;
+            }
         }
     }
 }
