@@ -28,8 +28,6 @@ public class PlayGame {
                     int intRandomNumber = randomNumber.charAt(i)-48;
                     int intInput = input.charAt(j)-48;
 
-                    String  test = String.valueOf(intInput);
-
                     if(intRandomNumber == intInput){
 
                         if(i == j){
